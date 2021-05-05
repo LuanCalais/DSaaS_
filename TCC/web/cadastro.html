@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--
+Author: Luan, Guilherme, Felipe
+-->
+<html>
+    <head>
+        <title>Tela de Cadastros</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div lang="pt-br">
+            <h1>Cadastro</h1>
+            
+            <form id="FCadastro" method="POST" action="ControleCadastro.java" >
+                <fieldset>
+                    <legend>Informações de cadastro</legend>
+                    <input id="btn1" type="radio" name="rdTipo" value="Pessoal" required autofocus >
+                    <input id="btn2" type="radio" name="rdTipo" value="Empresa">
+                    Nome: <input type="text" name="txtNome" required><br>
+                    Endereço: <input type="text" name="txtEndereco" required><br>
+                    Dara de Nascimento: <input type="date" name="txtDataNasc" required><br>
+                    Telefone: <input type="text" maxlength="11"  placeholder="xxxxx-xxxx">
+                    
+                </fieldset>
+            </form>
+            
+        </div>
+    </body>
+</html>

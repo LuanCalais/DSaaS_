@@ -1,16 +1,58 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+Author: Luan, Guilherme, Felipe
 -->
 <html>
     <head>
-        <title>Projeto Criado</title>
+        <title>CRUD</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div>TODO write content</div>
+        
+        <div lang="pt-br" >
+            
+            
+             <h1>Documentos</h1>
+        <h2 id="sub1">Tipo de documento:</h2>
+        
+        <form id="F1" method="POST" action="ControleDocumento">
+            
+        <h2 id="ID" >Identificador:</h2>
+        <input id="Identificador"  type="number" name="txtId" style="position: absolute; top: 182px; left: 700px;">
+            
+        <input id="btn1" type="radio" name="rdTipo" value="Pessoal" checked >
+        <label for="btn1" style="font-family: 'Merriweather', serif;
+                                 font-weight: bold;
+                                 top: 269px;
+                                 left: 510px;
+                                 position: absolute;">Pessoal</label>
+                                 
+        <input id="btn2" type="radio" name="rdTipo" value="Empresa">
+        <label for="btn2" style="font-family: 'Merriweather', serif;
+                                 font-weight: bold;
+                                 top: 269px;
+                                 left: 710px;
+                                 position: absolute;">Empresa</label>
+        
+                                 
+        <h2 id="sub2">Descrição:</h2>
+        <input id="Desc" type="text" name="txtDescricao" autocomplete="off" >
+        
+        <h2 id="Data" >Data da estocagem</h2>
+        <input id="DataEstoque"  type="date" name="btnData" >
+        
+        <input id="confirma" type="submit" name="Confirma" value="Cadastrar"> 
+         <input id="listar" type="submit" name="Confirma" value="Listar"> 
+         <input id="listarId" type="submit" name="Confirma" value="Listar ID"> 
+         <input id="deletar" type="submit" name="Confirma" value="Deletar"> 
+         <input id="alterar" type="submit" name="Confirma" value="Alterar">
+        </form>       
+            
+        </div>
+        
+        
     </body>
 </html>

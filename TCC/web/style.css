@@ -1,0 +1,301 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24/04/2021, 09:33:48
+    Author     : luanc
+*/
+
+body{
+    margin: 0px;
+    background-color: #7FFFD4;
+}
+
+
+h1{font-family: 'Merriweather', serif;
+   font-size: 65px; 
+   position: absolute;
+   font-weight: bold;
+   color: #008080;
+   left: 465px;
+   background-color: #ADD8E6;
+   border-radius: 50px 50px 50px 50px;
+   padding: 10px
+}
+
+h1:hover{font-family: 'Merriweather', serif;
+    font-size: 65px;
+    position: absolute;
+    font-weight: bold;
+    color: #48D1CC;
+    left: 465px;
+    background-color: #008080;;
+    border-radius: 50px 50px 50px 50px;
+    padding: 10px
+}
+
+#texto{font-family: 'Merriweather', serif;
+   font-size: 60px; 
+   position: absolute;
+   font-weight: bold;
+   color: #008080;
+   left: 100px;
+   background-color: #48D1CC;
+   border-radius: 50px 50px 50px 50px;
+   padding: 7px
+}
+
+#texto:hover{font-family: 'Merriweather', serif;
+    font-size: 60px;
+    position: absolute;
+    font-weight: bold;
+    color: #48D1CC;
+    left: 100px;
+    background-color: #008080;;
+    border-radius: 50px 50px 50px 50px;
+    padding: 7px
+}
+
+a{font-family: 'Merriweather', serif;
+   font-size: 30px; 
+   position: absolute;
+   font-weight: bold;
+   color: #008080;
+   left: 293px;
+   top: 250px;
+   background-color: #48D1CC;
+   border-radius: 50px 50px 50px 50px;
+   padding: 7px
+}
+
+h3{font-family: 'Merriweather', serif;
+   font-size: 20px; 
+   position: absolute;
+   font-weight: bold;
+   color: #008080;
+   left: 400px;
+   top: 50px;
+   background-color: #48D1CC;
+   border-radius: 50px 50px 50px 50px;
+   padding: 9px
+}
+
+h3:hover{font-family: 'Merriweather', serif;
+    font-size: 20px;
+    position: absolute;
+    font-weight: bold;
+    color: #48D1CC;
+    left: 400px;
+    background-color: #008080;;
+    border-radius: 50px 50px 50px 50px;
+    padding: 9px
+}
+
+table{font-family: 'Merriweather', serif;
+    position: absolute;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    top: 180px;
+    left: 485px;
+    text-align: center;
+    background-color: #66CDAA;
+    padding: 10px;
+}
+
+table:hover{font-family: 'Merriweather', serif;
+    position: absolute;
+    font-weight: bold;
+    color: #66CDAA;
+    top: 180px;
+    left: 485px;
+    text-align: center;
+    background-color: black;
+
+}
+
+
+#ID{font-family: 'Merriweather', serif;
+    font-size: 30px;
+    position: absolute;
+    font-weight: bold;
+    color: black;
+    top: 145px;
+    left: 490px;
+}
+
+
+#sub1{font-family: 'Merriweather', serif;
+    font-size: 30px;
+    position: absolute;
+    font-weight: bold;
+    color: black;
+    top: 200px;
+    left:  490px;
+}
+
+
+
+
+#btn1{font-family: 'Merriweather', serif;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    border-radius: 50px 50px 50px 50px;
+    padding: 12px;
+    color: #DC143C;
+    background-color: black;
+    top: 270px;
+    left: 490px
+}
+
+
+#btn2{font-family: 'Merriweather', serif;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    border-radius: 50px 50px 50px 50px;
+    padding: 12px;
+    color: #DC143C;
+    background-color: black;
+    top: 270px;
+    left: 690px;
+}
+
+#sub2{font-family: 'Merriweather', serif;
+    font-size: 30px;
+    position: absolute;
+    font-weight: bold;
+    color: black;
+    top: 280px;
+    left: 490px;
+}
+
+#Desc{font-family: 'Merriweather', serif;
+      position: absolute;
+      top: 314px;
+      left: 650px;
+}
+
+#Data{font-family: 'Merriweather', serif;
+    font-size: 30px;
+    position: absolute;
+    font-weight: bold;
+    color: black;
+    top: 380px;
+    left: 490px;
+}
+
+#DataEstoque{font-family: 'Merriweather', serif;
+      position: absolute;
+      top: 414px;
+      left: 785px;
+      font-weight: bold;
+}
+
+
+
+#DataEstoque{font-family: 'Merriweather', serif;
+      position: absolute;
+      top: 414px;
+      left: 785px;
+      font-weight: bold;
+}
+
+
+#confirma{font-family: 'Merriweather', serif;
+    font-size: 19px;
+    font-weight: bold;
+    position: absolute;
+    top: 500px;
+    left: 842px;
+    background-color: #008080;
+}
+
+#confirma:hover{font-family: 'Merriweather', serif;
+    font-size: 19px;
+    font-weight: bold;
+    position: absolute;
+    top: 500px;
+    left: 842px;
+    color: #008080;
+    background-color: black;
+}
+
+#listar{font-family: 'Merriweather', serif;
+    font-size: 19px;
+    font-weight: bold;
+    position: absolute;
+    top: 500px;
+    left: 750px;
+    background-color: #008080;
+}
+
+#listar:hover{font-family: 'Merriweather', serif;
+    font-size: 19px;
+    font-weight: bold;
+    position: absolute;
+    top: 500px;
+    left: 750px;
+    color: #008080;
+    background-color: black;
+}
+
+#listarId{font-family: 'Merriweather', serif;
+    font-size: 19px;
+    font-weight: bold;
+    position: absolute;
+    top: 500px;
+    left: 400px;
+    background-color: #008080;
+}
+
+#listarId:hover{font-family: 'Merriweather', serif;
+    font-size: 19px;
+    font-weight: bold;
+    position: absolute;
+    top: 500px;
+    left: 400px;
+    color: #008080;
+    background-color: black;
+}
+
+#deletar{font-family: 'Merriweather', serif;
+    font-size: 19px;
+    font-weight: bold;
+    position: absolute;
+    top: 500px;
+    left: 530px;
+    background-color: #008080;
+}
+
+#deletar:hover{font-family: 'Merriweather', serif;
+    font-size: 19px;
+    font-weight: bold;
+    position: absolute;
+    top: 500px;
+    left: 530px;
+    color: #008080;
+    background-color: black;
+}
+
+#alterar{font-family: 'Merriweather', serif;
+    font-size: 19px;
+    font-weight: bold;
+    position: absolute;
+    top: 500px;
+    left: 635px;
+    background-color: #008080;
+}
+
+#alterar:hover{font-family: 'Merriweather', serif;
+    font-size: 19px;
+    font-weight: bold;
+    position: absolute;
+    top: 500px;
+    left: 635px;
+    color: #008080;
+    background-color: black;
+}
