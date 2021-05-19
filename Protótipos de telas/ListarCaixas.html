@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>Protótipo tela de Criacao de listagem de caixas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" contet="width=device-width, inicial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+
+
+    <body>
+
+        <div lang="pt-br">
+
+            <h1>Listar Caixas</h1>
+                <form id="FCadastro" method="POST">
+                  <fieldset style="width: 310px;
+                                   height: 95px; " >
+                    <legend style="font-weight: bolder;" >Informações da Caixa</legend>
+                        Id da caixa:<br> <input type="number" name="txtIdCaixa" placeholder="ID"><br>
+                        <input id="confirma" type="submit" name="Confirma" value="Buscar por ID" style="position: absolute;
+                                                                                                    top: 116px;
+                                                                                                    left: 217px;"> 
+                        <input id="confirma" type="submit" name="Confirma" value="Listar Todos" style="position: absolute;
+                                                                                                    top: 146px;">
+                  </fieldset>
+
+                  <table border="1" style="position: absolute;
+                                           left: 450px;
+                                           top: 240px;
+                                           width: 500px;
+                                           text-align: center;
+                                           background-color: #F5FFFA;" >
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Descrição</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <td>129</td>
+                        <td>Exames sem uso</td>
+                        <td>10/02/2021</td>
+                    </tbody>
+
+                    <tbody>
+                        <td>132</td>
+                        <td>Recibos de luz</td>
+                        <td>15/03/2021</td>
+                    </tbody>
+
+                    <tbody>
+                        <td>4039</td>
+                        <td>Cópias de Documentos</td>
+                        <td>02/04/2021</td>
+                    </tbody>
+
+                    <tbody>
+                        <td>4192</td>
+                        <td>Dados de clientes inativos</td>
+                        <td>10/04/2021</td>
+                    </tbody>
+
+                    <tbody>
+                        <td>5039</td>
+                        <td>Recibos de água</td>
+                        <td>19/05/2021</td>
+                    </tbody>
+
+                  </table>
+
+
+
+
+                </form>
+        </div>    
+
+        <img src="imagens/DSaaS Logotipo.jpg">
+
+    </body>
+
+</html>

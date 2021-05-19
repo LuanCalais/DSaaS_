@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import java.sql.Connection;
@@ -15,10 +10,6 @@ import java.util.List;
 import util.ConectaBanco;
 import modelo.Documentos;
 
-/**
- *
- * @author luanc
- */
 public class DocumentosDAO {
     
     public static final String INSERT = "INSERT INTO documento (id_doc, descricao, data_doc, tipo_doc) VALUES(?, ?, ?, ?)";

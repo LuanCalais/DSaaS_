@@ -1,0 +1,22 @@
+
+body{background-image: url(/imagens/fundo_teste.jpg);
+    background-size: 1440px 900px;
+    background-repeat: no-repeat;
+    background-attachment: fixe;
+    font-family: 'Merriweather', serif;
+    font-weight: bold;
+}
+
+
+fieldset{
+    width: 290px;
+    background-color:	#F5FFFA;
+}
+
+h1{text-align:justify ;}
+
+img{position: absolute;
+    left: 1195px;
+    top: 0px;
+    width: 150px;
+}

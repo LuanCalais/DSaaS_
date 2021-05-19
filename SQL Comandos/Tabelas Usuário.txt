@@ -1,0 +1,57 @@
+CREATE SEQUENCE seq_usuario
+    START WITH 5
+    INCREMENT BY 5
+    MINVALUE 5;
+    
+CREATE SEQUENCE seq_endereco
+    START WITH 3
+    INCREMENT BY 2
+    MINVALUE 3;
+
+CREATE SEQUENCE seq_pessoal
+    START WITH 1
+    INCREMENT BY 7;
+
+CREATE SEQUENCE seq_empresa
+    START WITH 50
+    INCREMENT BY 2;
+
+CREATE TABLE endereco(
+    id INTEGER DEFAULT NEXTVAL('seq_endereco'),
+    cep VARCHAR(15),
+    logadouro VARCHAR(50) NOT NULL,
+    bairro VARCHAR(30) NOT NULL,
+    numero INTEGER NOT NULL,
+    CONSTRAINT pk_idEndereco PRIMARY KEY(id)
+);
+
+CREATE TABLE usuario(
+    id INTEGER DEFAULT NEXTVAL('seq_usuario'),
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(50) NOT NULL UNIQUE,
+    telefone VARCHAR(25) NOT NULL UNIQUE,
+    celular VARCHAR(15) NOT NULL UNIQUE,
+    cd_endereco INTEGER NOT NULL,
+    senha VARCHAR NOT NULL UNIQUE,
+    CONSTRAINT pk_idUser PRIMARY KEY(id),
+    CONSTRAINT fk_endereco FOREIGN KEY(cd_endereco) REFERENCES endereco(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE pessoal(
+    id INTEGER DEFAULT NEXTVAL('seq_pessoal'),
+    cpf VARCHAR(11) NOT NULL UNIQUE,
+    sexo CHAR NOT NULL CHECK(sexo = 'M' OR sexo = 'F'),
+    data_nasc DATE NOT NULL,
+    cd_usuario INTEGER NOT NULL,
+    CONSTRAINT pk_idPessoal PRIMARY KEY(id),
+    CONSTRAINT fk_usuario FOREIGN KEY(cd_usuario) REFERENCES usuario(id)
+);
+
+CREATE TABLE empresa(
+    id INTEGER DEFAULT NEXTVAL('seq_empresa'),
+    cnpj VARCHAR(14) NOT NULL UNIQUE,
+    cd_usuario INTEGER NOT NULL,
+    CONSTRAINT pk_idEmpresa PRIMARY KEY(id),
+    CONSTRAINT fk_usuario FOREIGN KEY(cd_usuario) REFERENCES usuario(id)
+);

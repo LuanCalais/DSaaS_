@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Protótipo tela de cadastro</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" contet="width=device-width, inicial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/style.css">
+    </head>
+
+
+    <body>
+
+        <div lang="pt-br">
+
+            <h1>Criar nova conta</h1>
+                <form id="FCadastro" method="POST">
+                  <fieldset>
+                    <legend>Informações de Cadastro</legend>
+                        Pessoal<input id="btn1" type="radio" name="rdTipo" value="Pessoal" required autofocus>&nbsp
+                        Empresa<input id="btn2" type="radio" name="rdTipo" value="Empresa"><br>
+                        Nome/Empresa:<br> <input type="text" name="txtNome" required><br>
+                        E-mail:<br> <input type="email" name="txtEmail" placeholder="usuario@email.com"><br>
+                        CPF/CNPJ:<br> <input type="number" name="txtDoc" placeholder="000.000.000.00"><br>
+                        Telefone:<br> <input type="tel" name="txtTel" placeholder="(XX)XXXX-XXXX"><br>
+                        Celular:<br> <input type="tel" name="txtCel" placeholder="(XX)XXXXX-XXXX"><br>
+                        CEP:<br> <input type="text" name="txtCEP" placeholder="00000-000"><br>
+                        Logadouro:<br> <input type="text" name="txtLogadouro" placeholder="Avenida Japão"><br>
+                        Bairro:<input type="text" name="txtBairro" placeholder="Cesar de Souza" style="position: absolute;
+                                                                                                       top: 421.75px;
+                                                                                                       left: 25px;
+                                                                                                       width: 120px; "
+                        
+                                                                                                    > &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                        Número:<br> <input type="number" name="txtNumero" placeholder="000" style="position: absolute;
+                                                                                 width:50px; 
+                                                                                 left:150px;"><br>
+                        Senha:<br> <input type="password" name="txtSenha" required><br>
+                        <input id="confirma" type="submit" name="Confirma" value="Cadastrar" style="position: absolute;
+                                                                                                    top: 462px ;
+                                                                                                    left: 230px;"> 
+                        
+
+                  </fieldset>
+                </form>
+        </div>    
+
+        <img src="imagens/DSaaS Logotipo.jpg">
+
+    </body>
+
+</html>
