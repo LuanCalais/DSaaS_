@@ -1,13 +1,24 @@
 package modelo;
 
 import java.sql.Date;
+import java.util.Calendar;
+import java.util.Objects;
 
 public class Pessoal extends Usuario{
     
+    private String nome;
     private String cpf;
     private char sexo;
     private Date data_nasc;
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
     public String getCpf() {
         return cpf;
     }

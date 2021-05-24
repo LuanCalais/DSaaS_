@@ -8,6 +8,9 @@ public class Endereco {
     private String bairro;
     private int numero;
 
+    public Endereco() {
+    }
+    
     public int getId() {
         return id;
     }
