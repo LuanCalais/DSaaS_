@@ -12,17 +12,35 @@ Author: Luan, Guilherme, Felipe
         <div lang="pt-br">
             <h1>Cadastro</h1>
             
-            <form id="FCadastro" method="POST" action="ControleCadastro.java" >
+            <form id="FCadastro" method="POST" action="ControleCadastro" >
                 <fieldset>
                     <legend>Informações de cadastro</legend>
                     <input id="btn1" type="radio" name="rdTipo" value="Pessoal" required autofocus >
                     <input id="btn2" type="radio" name="rdTipo" value="Empresa">
                     Nome: <input type="text" name="txtNome" required><br>
-                    Endereço: <input type="text" name="txtEndereco" required><br>
-                    Dara de Nascimento: <input type="date" name="txtDataNasc" required><br>
-                    Telefone: <input type="text" maxlength="11"  placeholder="xxxxx-xxxx">
+                    CPF: <input type="text" name="txtCpf" required><br>
+                    <select name="txtSexo">
+                        <option value="M">M</option>
+                        <option value="F">F</option>
+                    </select><br>
+                    E-mail: <input type="email" name="txtEmail" required><br>
                     
+                    <fieldset>
+                    CEP: <input type="text" name="txtCep" required><br>
+                    Logadouro: <input type="text" name="txtLogadouro" required><br>
+                    Bairro: <input type="text" name="txtBairro" required><br>
+                    Nº: <input type="number" name="txtNumero" required><br>
+                    Complemento(Opicional): <input type="text" name="txtComplemento">
+                    </fieldset>
+                    
+                    Dara de Nascimento: <input type="date" name="txtDataNasc"><br>
+                    Telefone: <input type="text" name="txtTelefone" maxlength="11"  placeholder="xxxxx-xxxx"><br>
+                    Celular: <input type="text" name="txtCelular" maxlength="11" placeholder="xxxxx-xxxx"><br>
+                    Senha: <input type="password" name="txtSenha" required>
                 </fieldset>
+                
+                <input id="confirma" type="submit" name="Confirma" value="Cadastrar">
+                
             </form>
             
         </div>
