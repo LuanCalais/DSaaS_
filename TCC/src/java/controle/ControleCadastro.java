@@ -29,22 +29,29 @@ public class ControleCadastro extends HttpServlet {
             end.setBairro(request.getParameter("txtBairro"));
             int numero = Integer.parseInt(request.getParameter("txtNumero"));
             end.setNumero(numero);
-            dao.CadastrarEndereco(end);
+            int idEnd = dao.CadastrarEndereco(end);
+            end.setId(idEnd);
+            
 
-            Usuario usuario = new Usuario();
+            Pessoal usuario = new Pessoal();
             usuario.setEmail(request.getParameter("txtEmail"));
             usuario.setTelefone(request.getParameter("txtTelefone"));
             usuario.setCelular(request.getParameter("txtCelular"));
+            usuario.setEndereco(end);
             usuario.setSenha(request.getParameter("txtSenha"));
+            dao.CadastrarUsuario(usuario);
             
-            Pessoal pessoa = new Pessoal();
-            pessoa.setNome(request.getParameter("txtNome"));
-            pessoa.setCpf(request.getParameter("txtCpf"));
+            //Pessoal pessoa = new Pessoal();
+            usuario.setNome(request.getParameter("txtNome"));
+            usuario.setCpf(request.getParameter("txtCpf"));
             String aux = (request.getParameter("txtSexo"));
             char sexo = aux.charAt(0);
-            pessoa.setSexo(sexo);
+            usuario.setSexo(sexo);
       
-            dao.CadastrarPessoal(pessoa);
+            dao.CadastrarPessoal(usuario);
+            
+            request.setAttribute("Mensagem", "Deletado com sucesso com sucesso!");
+            request.getRequestDispatcher("sucesso.jsp").forward(request, response);
             
         }
     }

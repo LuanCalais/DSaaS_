@@ -42,5 +42,5 @@ public class Pessoal extends Usuario{
     public void setData_nasc(Date data_nasc) {
         this.data_nasc = data_nasc;
     }
-            
+    
 }

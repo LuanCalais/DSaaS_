@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import modelo.Empresa;
 import modelo.Endereco;
@@ -16,16 +17,23 @@ public class UsuarioDAO {
     public static final String INSERT_PESSOAL = "INSERT INTO pessoal(nome, cpf, sexo, data_nasc, cd_usuario) VALUES(?, ?, ?, ?, ?)";
     public static final String INSERT_EMPRESA = "INSERT INTO empresa(nomeSocial, nomeFantasia, cnpj, cd_usuario) VALUES(?, ?, ?, ?)";
     
-    public void CadastrarEndereco(Endereco endereco){
+    public int CadastrarEndereco(Endereco endereco){
         Connection conexao = null;
+        int returnedId = 0;
         try{
             conexao = ConectaBancoUsuario.getConexao();
-            PreparedStatement pstmt = conexao.prepareStatement(INSERT_END);
+            PreparedStatement pstmt = conexao.prepareStatement(INSERT_END, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, endereco.getCep());
             pstmt.setString(2, endereco.getLogadouro());
             pstmt.setString(3, endereco.getBairro());
             pstmt.setInt(4, endereco.getNumero());
-            pstmt.execute();
+            returnedId = pstmt.executeUpdate();
+            
+            ResultSet keys = pstmt.getGeneratedKeys();
+            if(keys.next()){
+                returnedId = keys.getInt("id");
+            }
+            else returnedId = -1; 
             
         }catch(Exception ex){
             throw new RuntimeException(ex);
@@ -37,19 +45,28 @@ public class UsuarioDAO {
                 throw new RuntimeException(ex);
             }
         }
+        return returnedId;
     }
     
-    public void CadastrarUsuario(Usuario usuario){
+    public int CadastrarUsuario(Usuario usuario){
         Connection conexao = null;
+        int returnedId = 0;
         try{
             conexao = ConectaBancoUsuario.getConexao();
-            PreparedStatement pstmt = conexao.prepareStatement(INSERT_USU);
+            PreparedStatement pstmt = conexao.prepareStatement(INSERT_USU, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, usuario.getEmail());
             pstmt.setString(2, usuario.getTelefone());
             pstmt.setString(3, usuario.getCelular());
             pstmt.setInt(4, usuario.getEndereco().getId());
             pstmt.setString(5, usuario.getSenha());
-            pstmt.execute();
+            returnedId = pstmt.executeUpdate();
+            
+            ResultSet keys = pstmt.getGeneratedKeys();
+            if(keys.next()){
+                returnedId = keys.getInt("Id");
+            }
+            else returnedId = -1;
+            
             
         }catch(Exception ex){
             throw new RuntimeException(ex);
@@ -61,6 +78,9 @@ public class UsuarioDAO {
                throw new RuntimeException(ex);
            } 
         }   
+        
+        return returnedId;
+        
     }
     
     public void CadastrarPessoal(Pessoal usuario){
