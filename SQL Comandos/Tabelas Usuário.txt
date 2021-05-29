@@ -57,3 +57,13 @@ CREATE TABLE empresa(
     CONSTRAINT pk_idEmpresa PRIMARY KEY(id),
     CONSTRAINT fk_usuario FOREIGN KEY(cd_usuario) REFERENCES usuario(id)
 );
+
+CREATE TABLE funcionario(
+    idFunc INTEGER PRIMARY KEY,
+    funcao VARCHAR(20) NOT NULL,
+    turno VARCHAR(20) NOT NULL,
+    cd_usuario INTEGER NOT NULL,
+    cd_pessoal INTEGER NOT NULL,
+    CONSTRAINT fk_usuario FOREIGN KEY(cd_usuario) REFERENCES usuario(id),
+    CONSTRAINT fk_pessoal FOREIGN KEY(cd_pessoal) REFERENCES pessoal(id)
+);

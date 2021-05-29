@@ -6,11 +6,20 @@ import java.util.Objects;
 
 public class Pessoal extends Usuario{
     
+    private int idPessoal;
     private String nome;
     private String cpf;
     private char sexo;
     private Date data_nasc;
 
+    public int getIdPessoal() {
+        return idPessoal;
+    }
+
+    public void setIdPessoal(int idPessoal) {
+        this.idPessoal = idPessoal;
+    }
+    
     public String getNome() {
         return nome;
     }

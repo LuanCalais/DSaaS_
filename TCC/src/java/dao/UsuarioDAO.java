@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import modelo.Empresa;
 import modelo.Endereco;
+import modelo.Funcionario;
 import modelo.Pessoal;
 import modelo.Usuario;
 import util.ConectaBancoUsuario;
@@ -16,6 +17,7 @@ public class UsuarioDAO {
     public static final String INSERT_USU = "INSERT INTO usuario(email, telefone, celular, cd_endereco, senha) VALUES(?, ?, ?, ?, ?)";
     public static final String INSERT_PESSOAL = "INSERT INTO pessoal(nome, cpf, sexo, data_nasc, cd_usuario) VALUES(?, ?, ?, ?, ?)";
     public static final String INSERT_EMPRESA = "INSERT INTO empresa(nomeSocial, nomeFantasia, cnpj, cd_usuario) VALUES(?, ?, ?, ?)";
+    public static final String INSERT_FUNC = "INSERT INTO funcionario(idFunc, funcao, turno, cd_usuario, cd_pessoal) VALUES(?, ?, ?, ?, ?)";
     
     public int CadastrarEndereco(Endereco endereco){
         Connection conexao = null;
@@ -83,17 +85,24 @@ public class UsuarioDAO {
         
     }
     
-    public void CadastrarPessoal(Pessoal usuario){
+    public int CadastrarPessoal(Pessoal usuario){
         Connection conexao = null;
+        int returnedId;
         try{
             conexao = ConectaBancoUsuario.getConexao();
-            PreparedStatement pstmt = conexao.prepareStatement(INSERT_PESSOAL);
+            PreparedStatement pstmt = conexao.prepareStatement(INSERT_PESSOAL, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, usuario.getNome());
             pstmt.setString(2, usuario.getCpf());
             pstmt.setString(3, String.valueOf(usuario.getSexo()));
             pstmt.setDate(4, usuario.getData_nasc());
             pstmt.setInt(5, usuario.getId());
-            pstmt.execute();
+            returnedId = pstmt.executeUpdate();
+            
+            ResultSet keys = pstmt.getGeneratedKeys();
+            if(keys.next()){
+                returnedId = keys.getInt("Id");
+            }
+            else returnedId = -1;
             
         }catch(Exception ex){
             throw new RuntimeException(ex);
@@ -105,6 +114,9 @@ public class UsuarioDAO {
                 throw new RuntimeException(ex);
             }
         }
+        
+        return returnedId;
+        
     }
             
     
@@ -132,21 +144,29 @@ public class UsuarioDAO {
         }
     }
     
-        /*  TESTAR SE ESSA É UMA BOA SOLUÇÃO===================================
-    
-        conexao = ConectaBancoUsuario.getConexao();
-            PreparedStatement pstmt = conexao.prepareStatement(INSERT_EMPRESA);
-            PreparedStatement pstmt2 = conexao.prepareStatement(INSERT_USU);
-            pstmt2.setString(1, usuario.getEmail());
-            pstmt2.setString(2, usuario.getTelefone());
-            pstmt2.setString(3, usuario.getCelular());
-            pstmt2.setInt(4, usuario.getEndereco().getId());
+    public void CadastrarFuncionario(Funcionario usuario){
+        Connection conexao = null;
+        try{
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(INSERT_FUNC);
             
-            pstmt.setString(1, usuario.getNomeSocial());
-            pstmt.setString(2, usuario.getNomeFantasia());
-            pstmt.setString(3, usuario.getCnpj());
+            pstmt.setInt(1, usuario.getIdFunc());
+            pstmt.setString(2, usuario.getFuncao());
+            pstmt.setString(3, usuario.getTurno());
             pstmt.setInt(4, usuario.getId());
-    */
-    
-    
+            pstmt.setInt(5, usuario.getIdPessoal());
+            pstmt.execute();
+            
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+        finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+    }
+        
 }

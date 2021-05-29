@@ -1,28 +1,27 @@
+<%-- 
+    Document   : FEmpresa
+    Created on : 29/05/2021, 16:46:33
+    Author     : Sammy Guergachi <sguergachi at gmail.com>
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-Author: Luan, Guilherme, Felipe
--->
 <html>
     <head>
-        <title>Tela de Cadastros</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
     </head>
     <body>
-        <div lang="pt-br">
-            <h1>Cadastro Pessoal</h1>
+        <h1>Página para cadastro Empresa</h1>
             
             <form id="FCadastro" method="POST" action="ControleCadastro">
                 <fieldset>
                     <legend>Informações de cadastro</legend>
-                    <input id="btn1" type="radio" name="rdTipo" value="Pessoal" required autofocus >
-                    <input id="btn2" type="radio" name="rdTipo" value="Empresa" onclick="location.href = 'FEmpresa.jsp'">
-                    Nome: <input type="text" name="txtNome" required><br>
-                    CPF: <input type="text" name="txtCpf" required><br>
-                    <select name="txtSexo">
-                        <option value="M">M</option>
-                        <option value="F">F</option>
-                    </select><br>
+                    <input id="btn1" type="radio" name="rdTipo" value="Pessoal" onclick="location.href = 'cadastro.html'">
+                    <input id="btn2" type="radio" name="rdTipo" value="Empresa" required autofocus>
+                    Nome Social: <input type="text" name="txtNomeSoc" required><br>
+                    Nome Fantasia: <input type="text" name="txtNomeFant" required><br>
+                    CNPJ: <input type="text" name="txtCNPJ" required><br>
                     E-mail: <input type="email" name="txtEmail" required><br>
                     
                     <fieldset>
@@ -33,7 +32,6 @@ Author: Luan, Guilherme, Felipe
                     Complemento(Opicional): <input type="text" name="txtComplemento">
                     </fieldset>
                     
-                    Dara de Nascimento: <input type="date" name="txtDataNasc"><br>
                     Telefone: <input type="text" name="txtTelefone" maxlength="11"  placeholder="xxxxx-xxxx"><br>
                     Celular: <input type="text" name="txtCelular" maxlength="11" placeholder="xxxxx-xxxx"><br>
                     Senha: <input type="password" name="txtSenha" required>
@@ -42,7 +40,6 @@ Author: Luan, Guilherme, Felipe
                 <input id="confirma" type="submit" name="Confirma" value="Cadastrar">
                 
             </form>
-            
-        </div>
+        
     </body>
 </html>

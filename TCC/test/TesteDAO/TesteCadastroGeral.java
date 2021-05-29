@@ -13,22 +13,22 @@ public class TesteCadastroGeral {
         Pessoal user = new Pessoal();
         UsuarioDAO dao = new UsuarioDAO();
         
-        end.setCep("000000000");
-        end.setLogadouro("Rua Jocalhão");
-        end.setBairro("Jardim Teste 1");
-        end.setNumero(111);
+        end.setCep("11111111");
+        end.setLogadouro("Rua TesteTeste");
+        end.setBairro("Jardim Teste 2");
+        end.setNumero(669);
         int idEnd = dao.CadastrarEndereco(end);
         end.setId(idEnd);
         
-        user.setEmail("emailtesteGeralUfa@teste.com");
-        user.setTelefone("90239230");
-        user.setCelular("012392332");
+        user.setEmail("emailtesteGeralMaisUm@teste.com");
+        user.setTelefone("11111111");
+        user.setCelular("22222222");
         user.setEndereco(end);
-        user.setSenha("senhaTesteGeralUltima2");
+        user.setSenha("senhaTesteMaisUm");
         int idUser = dao.CadastrarUsuario(user);
         
-        user.setNome("Fulaninho de teste Geral2");
-        user.setCpf("111111112");
+        user.setNome("Fulaninho de teste Geral3");
+        user.setCpf("111111113");
         user.setSexo('M');
         user.setId(idUser);
         dao.CadastrarPessoal(user);

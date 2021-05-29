@@ -21,6 +21,10 @@ public class ControleCadastro extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
+            String opc = request.getParameter("rdTipo");
+            
+            if("Pessoal".equals(opc)){
+            
             UsuarioDAO dao = new UsuarioDAO();
 
             Endereco end = new Endereco();
@@ -39,19 +43,55 @@ public class ControleCadastro extends HttpServlet {
             usuario.setCelular(request.getParameter("txtCelular"));
             usuario.setEndereco(end);
             usuario.setSenha(request.getParameter("txtSenha"));
-            dao.CadastrarUsuario(usuario);
+            int idUser = dao.CadastrarUsuario(usuario);
+        
             
-            //Pessoal pessoa = new Pessoal();
             usuario.setNome(request.getParameter("txtNome"));
             usuario.setCpf(request.getParameter("txtCpf"));
             String aux = (request.getParameter("txtSexo"));
             char sexo = aux.charAt(0);
             usuario.setSexo(sexo);
+            usuario.setId(idUser);
       
             dao.CadastrarPessoal(usuario);
             
-            request.setAttribute("Mensagem", "Deletado com sucesso com sucesso!");
+            request.setAttribute("Mensagem", "Usuário cadastrado com sucesso com sucesso!");
             request.getRequestDispatcher("sucesso.jsp").forward(request, response);
+            
+            }else{
+                
+                if("Empresa".equals(opc)){
+                    
+                    UsuarioDAO dao = new UsuarioDAO();
+
+                    Endereco end = new Endereco();
+                    end.setCep(request.getParameter("txtCep"));
+                    end.setLogadouro(request.getParameter("txtLogadouro"));
+                    end.setBairro(request.getParameter("txtBairro"));
+                    int numero = Integer.parseInt(request.getParameter("txtNumero"));
+                    end.setNumero(numero);
+                    int idEnd = dao.CadastrarEndereco(end);
+                    end.setId(idEnd);
+                    
+                    Empresa usuario = new Empresa();
+                    usuario.setEmail(request.getParameter("txtEmail"));
+                    usuario.setTelefone(request.getParameter("txtTelefone"));
+                    usuario.setCelular(request.getParameter("txtCelular"));
+                    usuario.setEndereco(end);
+                    usuario.setSenha(request.getParameter("txtSenha"));
+                    int idUser = dao.CadastrarUsuario(usuario);
+                    
+                    usuario.setNomeSocial(request.getParameter("txtNomeSoc"));
+                    usuario.setNomeFantasia(request.getParameter("txtNomeFant"));
+                    usuario.setCnpj(request.getParameter("txtCNPJ"));
+                    usuario.setId(idUser);
+                    dao.CadastrarEmpresa(usuario);
+                    
+                    request.setAttribute("Mensagem", "Empresa cadastrada com sucesso com sucesso!");
+                    request.getRequestDispatcher("sucesso.jsp").forward(request, response);
+                    
+                }
+            }
             
         }
     }
