@@ -18,6 +18,11 @@ public class UsuarioDAO {
     public static final String INSERT_PESSOAL = "INSERT INTO pessoal(nome, cpf, sexo, data_nasc, cd_usuario) VALUES(?, ?, ?, ?, ?)";
     public static final String INSERT_EMPRESA = "INSERT INTO empresa(nomeSocial, nomeFantasia, cnpj, cd_usuario) VALUES(?, ?, ?, ?)";
     public static final String INSERT_FUNC = "INSERT INTO funcionario(idFunc, funcao, turno, cd_usuario, cd_pessoal) VALUES(?, ?, ?, ?, ?)";
+    public static final String INSERT_GERENTE = "INSERT INTO gerente(nomeFunc, cd_funcionario) VALUES(?, ?)";
+    public static final String INSERT_RECEPCAO = "INSERT INTO recepcao(nomeFunc, cd_funcionario) VALUES(?, ?)";
+    public static final String INSERT_ESTOQUE = "INSERT INTO estoque(nomeFunc, cd_funcionario) VALUES(?, ?)";
+    public static final String SELEC_MAIL = "SELECT * FROM usuario WHERE email = ?";
+    
     
     public int CadastrarEndereco(Endereco endereco){
         Connection conexao = null;
@@ -167,6 +172,90 @@ public class UsuarioDAO {
                 throw new RuntimeException(ex);
             }
         }
+        
     }
+    
+    public void CadastrarGerente(Funcionario usuario){
+        Connection conexao = null;
+        try{
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(INSERT_GERENTE);
+            pstmt.setString(1, usuario.getNome());
+            pstmt.setInt(2, usuario.getIdFunc());
+            pstmt.execute();
+            
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+        finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+    }
+    
+    public void CadastrarRecepcao(Funcionario usuario){
+        Connection conexao = null;
+        try{
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(INSERT_RECEPCAO);
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+        finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+    }
+    
+    public void CadastrarEstoque(Funcionario usuario){
+        Connection conexao = null;
+        try{
+            
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+        finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+    }
+    
+    /*
+    public Usuario VerificaEmail(Usuario usuario){
+        Connection conexao = null;
+        try{
+        conexao = ConectaBancoUsuario.getConexao();
+        
+        PreparedStatement pstmt = conexao.prepareStatement(SELEC_MAIL);
+        pstmt.setString(1, usuario.getEmail());
+        
+        ResultSet rs = pstmt.executeQuery();
+        rs.next();
+        usuario.setEmail(rs.getString("email"));
+        
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+        finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+        
+        return usuario;
+        
+    }
+*/
         
 }

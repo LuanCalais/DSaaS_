@@ -1,7 +1,11 @@
+<%-- 
+    Document   : FPessoal
+    Created on : 30/05/2021, 17:38:39
+    Author     : Sammy Guergachi <sguergachi at gmail.com>
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-Author: Luan, Guilherme, Felipe
--->
 <html>
     <head>
         <title>Tela de Cadastros</title>
@@ -17,12 +21,13 @@ Author: Luan, Guilherme, Felipe
                     <legend>Informações de cadastro</legend>
                     <input id="btn1" type="radio" name="rdTipo" value="Pessoal" required autofocus >
                     <input id="btn2" type="radio" name="rdTipo" value="Empresa" onclick="location.href = 'FEmpresa.jsp'">
+                    <input id="btn3" type="radio" name="rdTipo" value="Funcionario" onclick="location.href='FFuncionario.jsp'">
                     Nome: <input type="text" name="txtNome" required><br>
                     CPF: <input type="text" name="txtCpf" required><br>
-                    <select name="txtSexo">
-                        <option value="M">M</option>
-                        <option value="F">F</option>
-                    </select><br>
+                    Sexo: <select name="txtSexo">
+                            <option value="M">M</option>
+                            <option value="F">F</option>
+                          </select><br>
                     E-mail: <input type="email" name="txtEmail" required><br>
                     
                     <fieldset>
@@ -44,5 +49,16 @@ Author: Luan, Guilherme, Felipe
             </form>
             
         </div>
+        
+            <%/*
+                Integer verifica = (Integer) request.getAttribute("Verifica");
+                if(verifica == null){
+                    */
+            %>
+               <!-- <h1>E-mail já cadastrado</h1> -->
+            <% 
+               // }
+            %>
+        
     </body>
 </html>

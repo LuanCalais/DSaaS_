@@ -67,3 +67,40 @@ CREATE TABLE funcionario(
     CONSTRAINT fk_usuario FOREIGN KEY(cd_usuario) REFERENCES usuario(id),
     CONSTRAINT fk_pessoal FOREIGN KEY(cd_pessoal) REFERENCES pessoal(id)
 );
+
+CREATE SEQUENCE seq_gerente
+    START WITH 2
+    INCREMENT BY 9;
+
+CREATE SEQUENCE seq_recepcao
+    START WITH 4
+    INCREMENT BY 11;
+
+CREATE SEQUENCE seq_estoque
+    START WITH 100;
+
+CREATE TABLE gerente(
+    id INTEGER DEFAULT NEXTVAL('seq_gerente'),
+    nomeFunc VARCHAR(50) NOT NULL,
+    cd_funcionario INTEGER NOT NULL,
+    CONSTRAINT fk_gerente PRIMARY KEY(id),
+    CONSTRAINT fk_funcionario FOREIGN KEY(cd_funcionario) REFERENCES funcionario(idFunc)
+);
+
+CREATE TABLE recepcao(
+    id INTEGER DEFAULT NEXTVAL('seq_recepcao'),
+    nomeFunc VARCHAR(50) NOT NULL,
+    cd_funcionario INTEGER NOT NULL,
+    CONSTRAINT pk_recepcao PRIMARY KEY(id),
+    CONSTRAINT fk_funcionario FOREIGN KEY(cd_funcionario) REFERENCES funcionario(idFunc)
+);
+
+CREATE TABLE estoque(
+    id INTEGER DEFAULT NEXTVAL('seq_estoque'),
+    nomeFunc VARCHAR(50) NOT NULL,
+    cd_funcionario INTEGER NOT NULL,
+    CONSTRAINT pk_estoque PRIMARY KEY(id),
+    CONSTRAINT fk_funcionario FOREIGN KEY(cd_funcionario) REFERENCES funcionario(idFunc)
+);
+
+

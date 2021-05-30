@@ -12,13 +12,14 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Página para cadastro Empresa</h1>
+        <h1>Cadastro Empresa</h1>
             
             <form id="FCadastro" method="POST" action="ControleCadastro">
                 <fieldset>
                     <legend>Informações de cadastro</legend>
-                    <input id="btn1" type="radio" name="rdTipo" value="Pessoal" onclick="location.href = 'cadastro.html'">
+                    <input id="btn1" type="radio" name="rdTipo" value="Pessoal" onclick="location.href = 'FPessoal.jsp'">
                     <input id="btn2" type="radio" name="rdTipo" value="Empresa" required autofocus>
+                    <input id="btn3" type="radio" name="rdTipo" value="Funcionario" onclick="location.href = 'FFuncionario.jsp'">
                     Nome Social: <input type="text" name="txtNomeSoc" required><br>
                     Nome Fantasia: <input type="text" name="txtNomeFant" required><br>
                     CNPJ: <input type="text" name="txtCNPJ" required><br>
