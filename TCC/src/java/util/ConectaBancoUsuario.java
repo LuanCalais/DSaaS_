@@ -11,7 +11,7 @@ public class ConectaBancoUsuario {
         try{
             
             Class.forName("org.postgresql.Driver");//Driver de conexão 
-            conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Usuarios", "postgres", "125678943");
+            conexao = DriverManager.getConnection("jdbc:postgresql://localhost:5432/PFC_", "postgres", "125678943");
             
         }catch(ClassNotFoundException ex){
             throw new RuntimeException(ex);

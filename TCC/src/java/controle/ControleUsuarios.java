@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelo.Empresa;
 import modelo.Funcionario;
 import modelo.Pessoal;
+import modelo.Usuario;
 
 @WebServlet(name = "ControleUsuarios", urlPatterns = {"/ControleUsuarios"})
 public class ControleUsuarios extends HttpServlet {
@@ -38,6 +39,21 @@ public class ControleUsuarios extends HttpServlet {
                 
                 RequestDispatcher rd = request.getRequestDispatcher("listaUsuarios.jsp");
                 rd.forward(request, response);
+            }else{
+                if("Excluir".equals(opc)){
+                    
+                    Usuario user = new Usuario();
+                    UsuarioDAO dao = new UsuarioDAO();
+                    
+                    int id = Integer.parseInt(request.getParameter("txtId"));
+                    user.setId(id);
+                    
+                    dao.deletarUsuario(user);
+                    
+                    RequestDispatcher rd = request.getRequestDispatcher("listaUsuarios.jsp");
+                    rd.forward(request, response);
+                    
+                }
             }
             
             

@@ -26,6 +26,7 @@ public class UsuarioDAO {
     public static final String SELECT_ALL_PES = "SELECT * FROM view_usuarios";
     public static final String SELECT_ALL_EMP = "SELECT * FROM view_empres";
     public static final String SELECT_ALL_FUNC = "SELECT * FROM view_func";
+    public static final String DELETE_USER = "DELETE FROM usuario WHERE id = ?";
     public static final String SELECT_MAIL = "SELECT * FROM usuario WHERE email = ?";
     
     
@@ -319,6 +320,25 @@ public class UsuarioDAO {
         return resultado;
     }
     
+    public void deletarUsuario(Usuario usuario){
+        Connection conexao = null;
+        try{
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(DELETE_USER);
+            pstmt.setInt(1, usuario.getId());
+            pstmt.execute();
+            
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+        finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+    }
     
     
     /*

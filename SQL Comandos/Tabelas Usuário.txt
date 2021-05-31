@@ -37,15 +37,17 @@ CREATE TABLE usuario(
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+
 CREATE TABLE pessoal(
     id INTEGER DEFAULT NEXTVAL('seq_pessoal'),
     nome VARCHAR(50) NOT NULL,
-    cpf VARCHAR(11) NOT NULL UNIQUE,
+    cpf VARCHAR(15) NOT NULL UNIQUE,
     sexo CHAR NOT NULL CHECK(sexo = 'M' OR sexo = 'F'),
     data_nasc DATE NOT NULL,
     cd_usuario INTEGER NOT NULL,
     CONSTRAINT pk_idPessoal PRIMARY KEY(id),
     CONSTRAINT fk_usuario FOREIGN KEY(cd_usuario) REFERENCES usuario(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE empresa(
@@ -56,6 +58,7 @@ CREATE TABLE empresa(
     cd_usuario INTEGER NOT NULL,
     CONSTRAINT pk_idEmpresa PRIMARY KEY(id),
     CONSTRAINT fk_usuario FOREIGN KEY(cd_usuario) REFERENCES usuario(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE funcionario(
@@ -64,8 +67,10 @@ CREATE TABLE funcionario(
     turno VARCHAR(20) NOT NULL,
     cd_usuario INTEGER NOT NULL,
     cd_pessoal INTEGER NOT NULL,
-    CONSTRAINT fk_usuario FOREIGN KEY(cd_usuario) REFERENCES usuario(id),
+    CONSTRAINT fk_usuario FOREIGN KEY(cd_usuario) REFERENCES usuario(id)
+    ON DELETE CASCADE ON UPDATE CASCADE,
     CONSTRAINT fk_pessoal FOREIGN KEY(cd_pessoal) REFERENCES pessoal(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE SEQUENCE seq_gerente
@@ -83,8 +88,9 @@ CREATE TABLE gerente(
     id INTEGER DEFAULT NEXTVAL('seq_gerente'),
     nomeFunc VARCHAR(50) NOT NULL,
     cd_funcionario INTEGER NOT NULL,
-    CONSTRAINT fk_gerente PRIMARY KEY(id),
+    CONSTRAINT pk_gerente PRIMARY KEY(id),
     CONSTRAINT fk_funcionario FOREIGN KEY(cd_funcionario) REFERENCES funcionario(idFunc)
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE recepcao(
@@ -93,6 +99,7 @@ CREATE TABLE recepcao(
     cd_funcionario INTEGER NOT NULL,
     CONSTRAINT pk_recepcao PRIMARY KEY(id),
     CONSTRAINT fk_funcionario FOREIGN KEY(cd_funcionario) REFERENCES funcionario(idFunc)
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE estoque(
@@ -101,6 +108,7 @@ CREATE TABLE estoque(
     cd_funcionario INTEGER NOT NULL,
     CONSTRAINT pk_estoque PRIMARY KEY(id),
     CONSTRAINT fk_funcionario FOREIGN KEY(cd_funcionario) REFERENCES funcionario(idFunc)
+    ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 
