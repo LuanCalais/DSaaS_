@@ -7,6 +7,7 @@ public class Caixa {
     private String descricao;
     private int quantidade;
     private Usuario usuario;
+    private double total;
 
     public int getId() {
         return id;
@@ -46,6 +47,15 @@ public class Caixa {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        total = quantidade * 5.00;
+        this.total = total;
     }
     
 }

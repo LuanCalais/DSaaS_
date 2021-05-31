@@ -22,18 +22,18 @@
                     <input id="btn1" type="radio" name="rdTipo" value="Pessoal" required autofocus >
                     <input id="btn2" type="radio" name="rdTipo" value="Empresa" onclick="location.href = 'FEmpresa.jsp'">
                     <input id="btn3" type="radio" name="rdTipo" value="Funcionario" onclick="location.href='FFuncionario.jsp'">
-                    Nome: <input type="text" name="txtNome" required><br>
-                    CPF: <input type="text" name="txtCpf" required><br>
+                    Nome: <input type="text" name="txtNome" maxlength="50" required><br>
+                    CPF: <input type="text" name="txtCpf" maxlength="11" required><br>
                     Sexo: <select name="txtSexo">
                             <option value="M">M</option>
                             <option value="F">F</option>
                           </select><br>
-                    E-mail: <input type="email" name="txtEmail" required><br>
+                    E-mail: <input type="email" name="txtEmail" maxlength="50" required><br>
                     
                     <fieldset>
-                    CEP: <input type="text" name="txtCep" required><br>
-                    Logadouro: <input type="text" name="txtLogadouro" required><br>
-                    Bairro: <input type="text" name="txtBairro" required><br>
+                    CEP: <input type="text" name="txtCep" maxlength="15" required><br>
+                    Logadouro: <input type="text" name="txtLogadouro" maxlength="50" required><br>
+                    Bairro: <input type="text" name="txtBairro" maxlength="30" required><br>
                     Nº: <input type="number" name="txtNumero" required><br>
                     Complemento(Opicional): <input type="text" name="txtComplemento">
                     </fieldset>

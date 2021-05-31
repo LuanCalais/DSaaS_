@@ -20,15 +20,15 @@
                     <input id="btn1" type="radio" name="rdTipo" value="Pessoal" onclick="location.href = 'FPessoal.jsp'">
                     <input id="btn2" type="radio" name="rdTipo" value="Empresa" required autofocus>
                     <input id="btn3" type="radio" name="rdTipo" value="Funcionario" onclick="location.href = 'FFuncionario.jsp'">
-                    Nome Social: <input type="text" name="txtNomeSoc" required><br>
-                    Nome Fantasia: <input type="text" name="txtNomeFant" required><br>
-                    CNPJ: <input type="text" name="txtCNPJ" required><br>
-                    E-mail: <input type="email" name="txtEmail" required><br>
+                    Nome Social: <input type="text" name="txtNomeSoc" maxlength="50" required><br>
+                    Nome Fantasia: <input type="text" name="txtNomeFant" maxlength="50" required><br>
+                    CNPJ: <input type="text" name="txtCNPJ" maxlength="14" required><br>
+                    E-mail: <input type="email" name="txtEmail" maxlength="50" required><br>
                     
                     <fieldset>
-                    CEP: <input type="text" name="txtCep" required><br>
-                    Logadouro: <input type="text" name="txtLogadouro" required><br>
-                    Bairro: <input type="text" name="txtBairro" required><br>
+                    CEP: <input type="text" name="txtCep" maxlength="15" required><br>
+                    Logadouro: <input type="text" name="txtLogadouro" maxlength="50" required><br>
+                    Bairro: <input type="text" name="txtBairro" maxlength="30" required><br>
                     Nº: <input type="number" name="txtNumero" required><br>
                     Complemento(Opicional): <input type="text" name="txtComplemento">
                     </fieldset>

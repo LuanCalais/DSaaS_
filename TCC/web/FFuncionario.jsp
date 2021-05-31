@@ -15,8 +15,8 @@
                     <input id="btn2" type="radio" name="rdTipo" value="Empresa" onclick="location.href='FEmpresa.jsp'">
                     <input id="btn3" type="radio" nome="rdTipo" value="Funcionario" required autofocus>
                     
-                    Nome: <input type="text" name="txtNome" required><br>
-                    Identificador DSaaS: <input type="number" name="txtIdFunc" required><br>
+                    Nome: <input type="text" name="txtNome" maxlength="50" required><br>
+                    Identificador DSaaS: <input type="number" name="txtIdFunc" maxlength="10" required><br>
                     Função DSaaS: <select name="txtFuncao">
                                     <option value="Gerente">Gerente</option>
                                     <option value="Recepcao" >Recepcionista</option>
@@ -26,17 +26,17 @@
                             <option value = "Noturno">Noturno</option>
                             <option value="Diurno" >Diurno</option>
                            </select><br>
-                    CPF: <input type="text" name="txtCpf" required><br>
+                    CPF: <input type="text" name="txtCpf" maxlength="11" required><br>
                     Sexo: <select name="txtSexo">
                             <option value="M">M</option>
                             <option value="F">F</option>
                           </select><br>
-                    E-mail: <input type="email" name="txtEmail" required><br>
+                    E-mail: <input type="email" name="txtEmail" maxlength="50" required><br>
                     
                     <fieldset>
-                    CEP: <input type="text" name="txtCep" required><br>
-                    Logadouro: <input type="text" name="txtLogadouro" required><br>
-                    Bairro: <input type="text" name="txtBairro" required><br>
+                    CEP: <input type="text" name="txtCep" maxlength="15" required><br>
+                    Logadouro: <input type="text" name="txtLogadouro" maxlength="50" required><br>
+                    Bairro: <input type="text" name="txtBairro" maxlength="30" required><br>
                     Nº: <input type="number" name="txtNumero" required><br>
                     Complemento(Opicional): <input type="text" name="txtComplemento">
                     </fieldset>
