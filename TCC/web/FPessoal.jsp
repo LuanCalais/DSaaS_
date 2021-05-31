@@ -50,6 +50,8 @@
             
         </div>
         
+         <a href="home.jsp" >Home</a>
+        
             <%/*
                 Integer verifica = (Integer) request.getAttribute("Verifica");
                 if(verifica == null){

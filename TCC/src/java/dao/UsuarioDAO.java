@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import modelo.Empresa;
 import modelo.Endereco;
 import modelo.Funcionario;
@@ -21,7 +23,10 @@ public class UsuarioDAO {
     public static final String INSERT_GERENTE = "INSERT INTO gerente(nomeFunc, cd_funcionario) VALUES(?, ?)";
     public static final String INSERT_RECEPCAO = "INSERT INTO recepcao(nomeFunc, cd_funcionario) VALUES(?, ?)";
     public static final String INSERT_ESTOQUE = "INSERT INTO estoque(nomeFunc, cd_funcionario) VALUES(?, ?)";
-    public static final String SELEC_MAIL = "SELECT * FROM usuario WHERE email = ?";
+    public static final String SELECT_ALL_PES = "SELECT * FROM view_usuarios";
+    public static final String SELECT_ALL_EMP = "SELECT * FROM view_empres";
+    public static final String SELECT_ALL_FUNC = "SELECT * FROM view_func";
+    public static final String SELECT_MAIL = "SELECT * FROM usuario WHERE email = ?";
     
     
     public int CadastrarEndereco(Endereco endereco){
@@ -228,6 +233,93 @@ public class UsuarioDAO {
             }
         }
     }
+    
+    public ArrayList<Pessoal> listarPessoal(){
+        ArrayList<Pessoal> resultado = new ArrayList();
+        Connection conexao = null;
+        try{
+            conexao = ConectaBancoUsuario.getConexao();
+            Statement stmt = conexao.createStatement();
+            ResultSet rs = stmt.executeQuery(SELECT_ALL_PES);
+            
+            while(rs.next()){
+                Pessoal user = new Pessoal();
+                user.setId(rs.getInt("id"));
+                user.setNome(rs.getString("nome"));
+                resultado.add(user);
+            }
+            
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+        finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+        return resultado;
+    }
+    
+    public ArrayList<Empresa> listaEmpresa(){
+        ArrayList<Empresa> resultado = new ArrayList();
+        Connection conexao = null;
+        try{
+            conexao = ConectaBancoUsuario.getConexao();
+            Statement stmt = conexao.createStatement();
+            ResultSet rs = stmt.executeQuery(SELECT_ALL_EMP);
+            
+            while(rs.next()){
+                Empresa user = new Empresa();
+                user.setId(rs.getInt("Id"));
+                user.setNomeSocial(rs.getString("nomeSocial"));
+                user.setNomeFantasia(rs.getString("nomeFantasia"));
+                resultado.add(user);
+            }
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+        finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+        return resultado;
+    }
+    
+    public ArrayList<Funcionario> listaFuncionario(){
+        ArrayList<Funcionario> resultado = new ArrayList();
+        Connection conexao = null;
+        try{
+            conexao = ConectaBancoUsuario.getConexao();
+            Statement stmt = conexao.createStatement();
+            ResultSet rs = stmt.executeQuery(SELECT_ALL_FUNC);
+            
+            while(rs.next()){
+                Funcionario user = new Funcionario();
+                user.setId(rs.getInt("id_Func"));
+                user.setNome(rs.getString("nome"));
+                user.setFuncao(rs.getString("funcao"));
+                resultado.add(user);
+            }
+            
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+        finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+        return resultado;
+    }
+    
+    
     
     /*
     public Usuario VerificaEmail(Usuario usuario){

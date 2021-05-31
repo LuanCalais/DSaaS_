@@ -14,6 +14,6 @@
     </head>
     <body>
         <h2 id="texto">A operação foi um sucesso!</h2>
-        <a id="link" href="http://localhost:8080/CRUD_M1_PPOO/" >Voltar ao menu anterior</a>
+        <a id="link" href="http://localhost:8080/TCC/home.jsp" >Voltar ao menu anterior</a>
     </body>
 </html>

@@ -41,6 +41,8 @@
                 <input id="confirma" type="submit" name="Confirma" value="Cadastrar">
                 
             </form>
+            
+            <a href="home.jsp" >Home</a>
         
     </body>
 </html>

@@ -51,7 +51,7 @@
                 
             </form>
         
-        
+            <a href="home.jsp" >Home</a>
         
         
     </body>
