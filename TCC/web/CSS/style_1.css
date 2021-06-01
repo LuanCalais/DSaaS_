@@ -1,0 +1,111 @@
+html,body{
+    margin: 0;
+    paddin: 0;
+    width: 100%;
+}
+
+body{
+    font-family: 'Roboto Slab', serif;
+    width: 100%;
+    height: 100%;
+}
+
+#logo_1{
+    position: relative;
+    width: 1300px;
+    height: 600px;
+    left: -50px;
+    top: 1010px;
+}
+
+#estoque_1{
+    position: relative;
+    width: 1499px;
+    height: 600px;
+    top: -300px;
+    left: 0px;
+}
+
+.logo{
+    letter-spacing: 1px;
+    float: left;
+    padding: 0 60px;
+}
+
+.nav{
+    position: fixed;
+    top:0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #D3D3D3;
+}
+
+.menu{
+    float: right;
+    line-height: 60px;
+    margin: 0;
+}
+
+.menu ul{
+    list-style: none;
+}
+
+.menu ul li{
+    display: inline-block;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    padding: 0 20px;
+}
+
+.header{
+    position: fixed;
+    top: 170px;
+    left: 1380px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-weight: lighter;
+}
+
+.header span{
+    font-size: 52px;
+    color: #000;
+}
+
+.header p{
+    font-size: 25px;
+}
+
+.header button{
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 20px;
+    padding: 10px 20px;
+    background: none;
+}
+
+.div2{
+    width: 100%;
+    height: 230px;
+    top: 75px;
+    background-color: #DCDCDC;
+    position: absolute;
+    overflow: hidden;
+}
+
+#p1_home{
+    position: absolute;
+    top: 120px;
+    left: 300px;
+}
+
+#SobreNos{
+   color: black;
+   text-decoration: none;
+}
