@@ -49,9 +49,25 @@
             <button><a id="SobreNos" href="http://localhost:8080/TCC/SobreNos.html">Sobre Nós</a></button>
         </div>  
         
-
+        <div class="desc1" >
+            <h2>O que é gestão de documentos?</h2>
+            <p>A gestão de documentos é um conjunto de procedimentos <br>que permite a organização de forma eficiente e<br>
+                segura, visando a localização rápida e o descarte no momento determinado.</p>
+        </div>
             
-
+        <div class="desc2" >
+            <h2>Pra quem é o nosso trabalho?</h2>
+            <p>Nosso trabalho é destinado a pessoa física ou jurídica <br>
+                que tenha o interesse de estocar quaisquer arquivos<br>
+               que estejam em desuso, mas que possam ter sua importância futuramente<br>
+               impossibilitando assim o descarte dos mesmos.</p>
+        </div>
+        
+        <footer class="fotterHome" style="top: 1570px;" >
+            <h2>Fale Conosco</h2>
+            <a href="https://www.facebook.com/profile.php?id=100068708837828" target="_blank"><img id="face" src="CSS/Imagens_1/face_logo.png"></a>
+            <a href="https://www.instagram.com/dsaas_estocagem/" target="_blank"> <img id="insta" src="CSS/Imagens_1/insta_logo.png"></a>
+        </footer>
             
     </body>
 </html>
