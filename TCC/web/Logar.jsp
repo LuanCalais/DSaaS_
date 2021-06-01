@@ -1,3 +1,9 @@
+<%-- 
+    Document   : Logar
+    Created on : 01/06/2021, 13:29:53
+    Author     : Sammy Guergachi <sguergachi at gmail.com>
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -5,13 +11,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="CSS\style_1.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-        <title>Página Home</title>
+        <title>Login</title>
     </head>
     <body>
+        <h1>Login</h1>
         
-        
-        <img id="logo_1" src="CSS/Imagens_1/Logo.png" title="logo">
-        <img id="estoque_1" src="CSS/Imagens_1/Estoque_1.jpg" title="Estoque">
+        <img src="CSS/Imagens_1/ideia.png" style="
+                                                    position: absolute;
+                                                    top: 529.5px;
+                                                    left: 990px;
+                                                    " >
         
         <div class="div2">
             <p id="p1_home"> Unidade São Paulo-SP (11) 4546-6464 <br>
@@ -28,7 +37,7 @@
             <div class="menu" >
             <ul>
                 
-                <li><a href="Logar.jsp">Logar</a></li>    
+                <li><a href="home.jsp">Home</a></li>    
             
                 <li><a href="FPessoal.jsp">Cadastrar</a></li>
         
@@ -43,31 +52,21 @@
       </div>
      </div>
         
-        <div class="header">
-            <span class="title">DSaaS</span>
-            <p class="subtitle">Estocagem</p>
-            <button><a id="SobreNos" href="http://localhost:8080/TCC/SobreNos.html">Sobre Nós</a></button>
-        </div>  
+        <form class="login" action="ControleLogin" method="POST">
+                <legend>Login -</legend>
+                <h2>Email:</h2>
+                <input type="text" name="txtEmail" required maxlength="30" autofocus>
+                <h2>Senha:</h2>
+                <input type="password" name="txtSenha" required maxlength="20">
+                <input id="btnLogin" type="button" name="btnConfirma" value="Confirma">
+        </form>
         
-        <div class="desc1" >
-            <h2>O que é gestão de documentos?</h2>
-            <p>A gestão de documentos é um conjunto de procedimentos <br>que permite a organização de forma eficiente e<br>
-                segura, visando a localização rápida e o descarte no momento determinado.</p>
-        </div>
-            
-        <div class="desc2" >
-            <h2>Pra quem é o nosso trabalho?</h2>
-            <p>Nosso trabalho é destinado a pessoa física ou jurídica <br>
-                que tenha o interesse de estocar quaisquer arquivos<br>
-               que estejam em desuso, mas que possam ter sua importância futuramente<br>
-               impossibilitando assim o descarte dos mesmos.</p>
-        </div>
         
-        <footer class="fotterHome" style="top: 1570px;" >
+        <footer class="fotterHome" style="top: 990px;" >
             <h2>Fale Conosco</h2>
             <a href="https://www.facebook.com/profile.php?id=100068708837828" target="_blank"><img id="face" src="CSS/Imagens_1/face_logo.png"></a>
             <a href="https://www.instagram.com/dsaas_estocagem/" target="_blank"> <img id="insta" src="CSS/Imagens_1/insta_logo.png"></a>
         </footer>
-            
+        
     </body>
 </html>

@@ -211,3 +211,33 @@ body{
 .SobreNos h2{
     text-align: center;
 }
+
+.login{
+    color: black;
+    position: absolute;
+    left:600px;
+    top: 550px;
+    background-color: #DCDCDC;
+    border-radius: 50px 50px 50px 50px;
+    padding: 20px 50px;
+}
+
+.login legend{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.login h2{
+    font-weight: normal;
+    font-size: 17px;
+}
+
+#btnLogin{
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 20px;
+    padding: 10px 20px;
+    background: none;
+    font-weight: bold;
+    font-size: 14px
+}
