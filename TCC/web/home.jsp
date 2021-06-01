@@ -56,7 +56,7 @@
         </div>
             
         <div class="desc2" >
-            <h2>Pra quem é o nosso trabalho?</h2>
+            <h2>Para quem é o nosso trabalho?</h2>
             <p>Nosso trabalho é destinado a pessoa física ou jurídica <br>
                 que tenha o interesse de estocar quaisquer arquivos<br>
                que estejam em desuso, mas que possam ter sua importância futuramente<br>

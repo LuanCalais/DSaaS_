@@ -18,8 +18,9 @@
         
         <img src="CSS/Imagens_1/ideia.png" style="
                                                     position: absolute;
-                                                    top: 529.5px;
-                                                    left: 990px;
+                                                    top: 614.5px;
+                                                    left: 949px;
+                                                    width: 400px;
                                                     " >
         
         <div class="div2">
