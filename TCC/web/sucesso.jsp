@@ -14,58 +14,58 @@
         <title>Pagina de Sucesso</title>
     </head>
     <body>
-            
+
         <img id="sucessoIMG" src="CSS/Imagens_1/MuitasPessoas.png" style="position: absolute;
-                                                                          top: 735px;
-                                                                          left: 200px;">
-            
-            <div class="div2">
+             top: 735px;
+             left: 200px;">
+
+        <div class="div2">
             <p id="p1_home"> Unidade São Paulo-SP (11) 4546-6464 <br>
                 Unidade Sorocaba-SP  (15) 4230-4204<br>
                 Mogi das Cruzes-SP  (11) 4736-6238
             </p>
-        
-        <div class="wrapper">
-        <div class="nav">
-            <div class="logo">
-                <img id="logo" src="CSS/Imagens_1/DSaaS_Logotipo.png">
+
+            <div class="wrapper">
+                <div class="nav">
+                    <div class="logo">
+                        <img id="logo" src="CSS/Imagens_1/DSaaS_Logotipo.png">
+                    </div>
+
+                    <div class="menu" >
+                        <ul>
+
+                            <li><a href="home.jsp">Home</a></li>    
+
+                            <li><a href="FPessoal.jsp">Área do Cliente</a></li>
+
+                            <li><a href="Gerente\gerente.jsp" >Área do Gerente</a></li>
+
+                            <li><a href="Estoquista\estoquista.jsp">Área do Estoquista</a></li>
+
+                            <li><a href="Recepcao\recepcao.jsp">Área do Recepcionista</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            
-            <div class="menu" >
-            <ul>
-                
-                <li><a href="home.jsp">Home</a></li>    
-            
-                <li><a href="FPessoal.jsp">Área do Cliente</a></li>
-        
-                <li><a href="Gerente\gerente.jsp" >Área do Gerente</a></li>
-        
-                <li><a href="Estoquista\estoquista.jsp">Área do Estoquista</a></li>
-        
-                <li><a href="Recepcao\recepcao.jsp">Área do Recepcionista</a></li>
-            </ul>
         </div>
-       </div>
-      </div>
-     </div>
-        
+
         <div class="mensagem">
             <h1>Cadastro efetuado com sucesso! :)</h1>
         </div>
-        
+
         <div class="header">
             <span class="title">DSaaS</span>
             <p class="subtitle">Estocagem</p>
             <button><a id="SobreNos" href="http://localhost:8080/TCC/SobreNos.html">Sobre Nós</a></button>
         </div>  
-        
+
         <footer class="fotterHome" style="top: 990px;" >
             <h2>Fale Conosco</h2>
             <a href="https://www.facebook.com/profile.php?id=100068708837828" target="_blank"><img id="face" src="CSS/Imagens_1/face_logo.png"></a>
             <a href="https://www.instagram.com/dsaas_estocagem/" target="_blank"> <img id="insta" src="CSS/Imagens_1/insta_logo.png"></a>
         </footer>
-        
-        
-        
+
+
+
     </body>
 </html>
