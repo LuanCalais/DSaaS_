@@ -15,29 +15,29 @@ public class TesteCadastroFuncionario {
         Funcionario user = new Funcionario();
         UsuarioDAO dao = new UsuarioDAO();
         
-        end.setCep("CEPCEP243");
-        end.setLogadouro("Rua TesteFunc433");
-        end.setBairro("Jardim TesteFunc433");
-        end.setNumero(11);
+        end.setCep("CEPCEP2432");
+        end.setLogadouro("Rua TesteFunc4332");
+        end.setBairro("Jardim TesteFunc4332");
+        end.setNumero(111);
         int idEnd = dao.CadastrarEndereco(end);
         end.setId(idEnd);
         
-        user.setEmail("testeFunc43@teste.com");
-        user.setTelefone("TELTEL433");
-        user.setCelular("CELCEL433");
+        user.setEmail("FuncLucas@teste.com");
+        user.setTelefone("TELTEL423");
+        user.setCelular("CELCE2L433");
         user.setEndereco(end);
-        user.setSenha("senhaTesteFunc433");
+        user.setSenha("senhaTesteFunc2");
         int idUser = dao.CadastrarUsuario(user);
         
-        user.setNome("Funcionario 4");
-        user.setCpf("CPFCPF448");
+        user.setNome("Funcionario Lucas");
+        user.setCpf("CPFC32323");
         user.setSexo('M');
         user.setId(idUser);
         int idPessoal = dao.CadastrarPessoal(user);
         
-        user.setIdFunc(242);
+        user.setIdFunc(1232);
         user.setFuncao("Gerente");
-        user.setTurno("Noturno");
+        user.setTurno("Diurno");
         user.setId(idUser);
         user.setIdPessoal(idPessoal);
         dao.CadastrarFuncionario(user);

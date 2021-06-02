@@ -281,10 +281,10 @@ body{
     top: 86px;
 }
 
-.cadastroPes select{
+.cadastroPes select {
     position: absolute;
     left: 100px;
-    top: 194px;
+    top: 199.5px;
 }
 
 .cadastroEmp{
@@ -318,3 +318,32 @@ legend{
     font-size: 20px;
     text-align: center;
 }
+
+.mensagem{
+    color: black;
+    position: absolute;
+    left:390px;
+    top: 500px;
+    background-color: #DCDCDC;
+    border-radius: 50px 50px 50px 50px;
+    padding: 20px 50px;
+}
+
+.mensagem:hover{
+    background-color: #008080;
+    position: absolute;
+    top: 500px;
+    left: 390px;
+    border-radius: 50px 50px 50px 50px;
+    padding: 20px 50px;
+}
+
+.mensagemErro{
+    color: black;
+    left: 270px;
+    top: 500px;
+    background-color: #DCDCDC;
+    border-radius: 50px 50px 50px 50px;
+    padding: 20px 50px;
+}
+

@@ -93,15 +93,5 @@
             <a href="https://www.instagram.com/dsaas_estocagem/" target="_blank"> <img id="insta" src="CSS/Imagens_1/insta_logo.png"></a>
         </footer>
         
-            <%/*
-                Integer verifica = (Integer) request.getAttribute("Verifica");
-                if(verifica == null){
-                    */
-            %>
-               <!-- <h1>E-mail já cadastrado</h1> -->
-            <% 
-               // }
-            %>
-        
     </body>
 </html>

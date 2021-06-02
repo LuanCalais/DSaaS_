@@ -39,6 +39,7 @@ public class ControleUsuarios extends HttpServlet {
                 
                 RequestDispatcher rd = request.getRequestDispatcher("listaUsuarios.jsp");
                 rd.forward(request, response);
+                
             }else{
                 if("Excluir".equals(opc)){
                     
@@ -50,7 +51,7 @@ public class ControleUsuarios extends HttpServlet {
                     
                     dao.deletarUsuario(user);
                     
-                    RequestDispatcher rd = request.getRequestDispatcher("listaUsuarios.jsp");
+                    RequestDispatcher rd = request.getRequestDispatcher("Gerente/operaSucesso.jsp");
                     rd.forward(request, response);
                     
                 }

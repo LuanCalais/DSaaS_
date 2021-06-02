@@ -38,7 +38,7 @@
                 <tr>
                     <td><%= pes.getId() %></td> 
                     <td><%= pes.getNome() %></td>
-                    <td> <a href="<%=request.getContextPath()%>/ControleUsuarios?opc=Excluir&txtId=<%=pes.getId()%>">X</a>        </td>  
+                    <td> <a href="<%=request.getContextPath()%>/ControleUsuarios?Confirma=Excluir&txtId=<%=pes.getId()%>">X</a></td>  
                 </tr>
                 
                 

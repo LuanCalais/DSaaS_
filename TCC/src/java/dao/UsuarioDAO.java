@@ -169,6 +169,7 @@ public class UsuarioDAO {
             pstmt.execute();
             
         }catch(Exception ex){
+            System.out.println("Erro Cadastrar Funcionario: " + ex.getMessage());
             throw new RuntimeException(ex);
         }
         finally{
@@ -207,6 +208,10 @@ public class UsuarioDAO {
         try{
             conexao = ConectaBancoUsuario.getConexao();
             PreparedStatement pstmt = conexao.prepareStatement(INSERT_RECEPCAO);
+            pstmt.setString(1, usuario.getNome());
+            pstmt.setInt(2, usuario.getIdFunc());
+            pstmt.execute();
+            
         }catch(Exception ex){
             throw new RuntimeException(ex);
         }
@@ -222,6 +227,11 @@ public class UsuarioDAO {
     public void CadastrarEstoque(Funcionario usuario){
         Connection conexao = null;
         try{
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(INSERT_ESTOQUE);
+            pstmt.setString(1, usuario.getNome());
+            pstmt.setInt(2, usuario.getIdFunc());
+            pstmt.execute();
             
         }catch(Exception ex){
             throw new RuntimeException(ex);
@@ -301,7 +311,7 @@ public class UsuarioDAO {
             
             while(rs.next()){
                 Funcionario user = new Funcionario();
-                user.setId(rs.getInt("id_Func"));
+                user.setId(rs.getInt("idFunc"));
                 user.setNome(rs.getString("nome"));
                 user.setFuncao(rs.getString("funcao"));
                 resultado.add(user);

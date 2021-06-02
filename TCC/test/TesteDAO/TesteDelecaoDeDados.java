@@ -9,7 +9,7 @@ public class TesteDelecaoDeDados {
         UsuarioDAO dao = new UsuarioDAO();
         Usuario user = new Usuario();
         
-        user.setId(20);
+        user.setId(0);
         dao.deletarUsuario(user);
         
         System.out.println("Delecao efetuada!!!");

@@ -51,7 +51,7 @@
                     <legend>Cadastro de Funcionário DSaaS</legend>
                     Pessoal <input id="btn1" type="radio" name="rdTipo" value="Pessoal" onclick="location.href = 'FPessoal.jsp'"><br>
                     Empresa <input id="btn2" type="radio" name="rdTipo" value="Empresa" onclick="location.href='FEmpresa.jsp'"><br>
-                    Funcionário <input id="btn3" type="radio" nome="rdTipo" value="Funcionario" required autofocus><br>
+                    Funcionário <input id="btn3" type="radio" name="rdTipo" value="Funcionario" required autofocus><br>
                     
                     Nome: <br><input type="text" name="txtNome" maxlength="50" required><br>
                     Identificador DSaaS: <br><input type="number" name="txtIdFunc" maxlength="10" required><br>
@@ -69,7 +69,7 @@
                             <option value="M">M</option>
                             <option value="F">F</option>
                           </select><br>
-                          E-mail: <br><input type="email" name="txtEmail" maxlength="50" required><br>
+                    E-mail: <br><input type="email" name="txtEmail" maxlength="50" required><br>
                     
                     <fieldset>
                     CEP:<br> <input type="text" name="txtCep" maxlength="15" required><br>
