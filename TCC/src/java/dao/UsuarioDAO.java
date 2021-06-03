@@ -27,6 +27,10 @@ public class UsuarioDAO {
     public static final String SELECT_ALL_EMP = "SELECT * FROM view_empres";
     public static final String SELECT_ALL_FUNC = "SELECT * FROM view_func";
     public static final String DELETE_USER = "DELETE FROM usuario WHERE id = ?";
+    public static final String UPDATE_USUARIO = "UPDATE usuario SET email = ?, telefone = ?, celular = ?, cd_endereco = ?, senha = ? WHERE id = ?";
+    public static final String UPDATE_PESSOAL = "UPDATE pessoal SET nome = ?, sexo = ?, data_nasc = ? WHERE id = ?";
+    public static final String UPDATE_EMPRESA = "UPDATE empresa SET nomeSocial = ?, nomeFantasia = ? WHERE id = ?";
+    public static final String UPDATE_FUNC = "UPDATE funcionario SET funcao = ?, turno = ? WHERE idFunc = ?";
     public static final String SELECT_MAIL = "SELECT * FROM usuario WHERE email = ?";
     
     
@@ -311,7 +315,7 @@ public class UsuarioDAO {
             
             while(rs.next()){
                 Funcionario user = new Funcionario();
-                user.setId(rs.getInt("idFunc"));
+                user.setIdFunc(rs.getInt("idFunc"));
                 user.setNome(rs.getString("nome"));
                 user.setFuncao(rs.getString("funcao"));
                 resultado.add(user);
@@ -350,7 +354,30 @@ public class UsuarioDAO {
         }
     }
     
-    
+    public void updateUsuario(Usuario usuario){
+        Connection conexao = null;
+        try{
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(UPDATE_USUARIO);
+            pstmt.setString(1, usuario.getEmail());
+            pstmt.setString(2, usuario.getTelefone());
+            pstmt.setString(3, usuario.getCelular());
+            pstmt.setInt(4, usuario.getEndereco().getId());
+            pstmt.setString(5, usuario.getSenha());
+            pstmt.setInt(6, usuario.getId());
+            pstmt.execute();
+            
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+        finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+    }
     /*
     public Usuario VerificaEmail(Usuario usuario){
         Connection conexao = null;

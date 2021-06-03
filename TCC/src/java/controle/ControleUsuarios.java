@@ -25,9 +25,9 @@ public class ControleUsuarios extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
 
             String opc = request.getParameter("Confirma");
-
+            
             if ("Cadastrar".equals(opc)) {
-
+                
                 String tipo = request.getParameter("rdTipo");
                 UsuarioDAO dao = new UsuarioDAO();
                 Endereco end = new Endereco();
@@ -38,21 +38,24 @@ public class ControleUsuarios extends HttpServlet {
                 end.setNumero(numero);
                 int idEnd = dao.CadastrarEndereco(end);
                 end.setId(idEnd);
+                
+                
                 if ("Pessoal".equals(tipo)) {
-
+                
                     Pessoal usuario = new Pessoal();
                     usuario.setEmail(request.getParameter("txtEmail"));
                     usuario.setTelefone(request.getParameter("txtTelefone"));
                     usuario.setCelular(request.getParameter("txtCelular"));
                     usuario.setEndereco(end);
                     usuario.setSenha(request.getParameter("txtSenha"));
-                    /*
+                
+                /*
                 Usuario verifica = Autenticador.AutenticaEmail(usuario);
                 if(verifica == null){
                 request.setAttribute("Verifica", verifica);
                 request.getRequestDispatcher("FPessoal.jsp").forward(request, response);
-                }
-                     */
+                }*/
+                     
                     int idUser = dao.CadastrarUsuario(usuario);
 
                     usuario.setNome(request.getParameter("txtNome"));
@@ -140,12 +143,12 @@ public class ControleUsuarios extends HttpServlet {
                 }
             } else {
                 if ("Listar".equals(opc)) {
-
+                    System.out.println("Passei por aqui 2");
                     UsuarioDAO dao = new UsuarioDAO();
                     ArrayList<Pessoal> user = dao.listarPessoal();
                     ArrayList<Empresa> user2 = dao.listaEmpresa();
                     ArrayList<Funcionario> user3 = dao.listaFuncionario();
-
+                    System.out.println("Passei por aqui 3");
                     request.setAttribute("ListaPessoal", user);
                     request.setAttribute("ListaEmpresa", user2);
                     request.setAttribute("ListaFuncionario", user3);
