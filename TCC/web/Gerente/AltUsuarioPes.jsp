@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Tela de Cadastros</title>
+        <title>Tela de Alteracao Pessoal</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="CSS\style_1.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
     </head>
     <body>
-        <h1>Cadastro Pessoal</h1>
+        <h1>Alteração Pessoa Física</h1>
 
         <img src="CSS/Imagens_1/cad_Pessoal.png" style="
              position: absolute;
@@ -51,7 +51,7 @@
             <form id="FCadastro" method="POST" action="ControleUsuarios?Tipo=Pessoal&txtId=<%=id%>">
 
                 <legend>Alteração de Pessoa Física</legend>
-                Id do Usuário: <input type="text" value="<%=id%>" disabled style="width: 24px;"><br>
+                Id do Usuário: <input type="text" value="<%=id%>" disabled style="width: 55px; text-align: center;"><br>
                 Nome:<br><input type="text" name="txtNome" maxlength="50" required><br>
                 Sexo: <select name="txtSexo" style="position: absolute;
                                                     top: 116px;

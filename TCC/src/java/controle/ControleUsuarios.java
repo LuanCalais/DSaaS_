@@ -181,6 +181,28 @@ public class ControleUsuarios extends HttpServlet {
                                 RequestDispatcher rd = request.getRequestDispatcher("Gerente/AltUsuarioPes.jsp");
                                 rd.forward(request, response);
 
+                            } else {
+                                if ("Empresa".equals(tipo)) {
+
+                                    int id = Integer.parseInt(request.getParameter("txtId"));
+                                    request.setAttribute("id", id);
+
+                                    RequestDispatcher rd = request.getRequestDispatcher("Gerente/AltUsuarioEmp.jsp");
+                                    rd.forward(request, response);
+
+                                } else {
+                                    if ("Funcionario".equals(tipo)) {
+
+                                        int id = Integer.parseInt(request.getParameter("txtId"));
+                                        request.setAttribute("id", id);
+                                        int idFunc = Integer.parseInt(request.getParameter("txtIdFunc"));
+                                        request.setAttribute("idFunc", idFunc);
+
+                                        RequestDispatcher rd = request.getRequestDispatcher("Gerente/AltUsuarioFunc.jsp");
+                                        rd.forward(request, response);
+
+                                    }
+                                }
                             }
 
                         } else {
@@ -209,6 +231,25 @@ public class ControleUsuarios extends HttpServlet {
 
                                         RequestDispatcher rd = request.getRequestDispatcher("operaSucesso.jsp");
                                         rd.forward(request, response);
+
+                                    case "Empresa":
+                                        Empresa emp = new Empresa();
+                                        
+                                        emp.setEmail(request.getParameter("txtEmail"));
+                                        emp.setTelefone(request.getParameter("txtTelefone"));
+                                        emp.setCelular(request.getParameter("txtCelular"));
+                                        emp.setSenha(request.getParameter("txtSenha"));
+                                        int idUserEmp = Integer.parseInt(request.getParameter("txtId"));
+                                        emp.setId(idUserEmp);
+                                        dao.updateUsuario(emp);
+                                        
+                                        emp.setNomeSocial(request.getParameter("txtNomeSoc"));
+                                        emp.setNomeFantasia(request.getParameter("txtNomeFant"));
+                                        dao.updateEmpresa(emp);
+                                        
+                                        RequestDispatcher rdEmp = request.getRequestDispatcher("operaSucesso.jsp");
+                                        rdEmp.forward(request, response);
+                                        
                                 }
                             }
                         }
