@@ -19,19 +19,17 @@ import modelo.Documentos;
 @WebServlet(name = "ControleDocumento", urlPatterns = {"/ControleDocumento"})
 public class ControleDocumento extends HttpServlet {
 
-
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+
             String opc = request.getParameter("Confirma");
-            
-            if("Cadastrar".equals(opc)){
-                
-               // Date datas = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("btnData"));
-                
+
+            if ("Cadastrar".equals(opc)) {
+
+                // Date datas = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(request.getParameter("btnData"));
                 modelo.Documentos doc = new modelo.Documentos();
                 int Id = Integer.parseInt(request.getParameter("txtId"));
                 doc.setId(Id);
@@ -39,35 +37,34 @@ public class ControleDocumento extends HttpServlet {
                 //doc.setData(data);
                 doc.setData(request.getParameter("btnData"));
                 doc.setTipo(request.getParameter("rdTipo"));
-                
+
                 dao.DocumentosDAO dao = new dao.DocumentosDAO();
                 dao.cadastrar(doc);
-                
+
                 request.setAttribute("Mensagem", "Cadastrado com sucesso!");
                 request.getRequestDispatcher("sucesso.jsp").forward(request, response);
-                
-            }else if("Listar".equals(opc)){
-                
+
+            } else if ("Listar".equals(opc)) {
+
                 dao.DocumentosDAO dao = new dao.DocumentosDAO();
-        
+
                 ArrayList<Documentos> documentos = dao.listar();
                 request.setAttribute("listaDocumentos", documentos);
-                
+
                 RequestDispatcher rd = request.getRequestDispatcher("listaestoque.jsp");
                 rd.forward(request, response);
-                
-            }   else if("Listar ID".equals(opc)){
+
+            } else if ("Listar ID".equals(opc)) {
                 int Id = Integer.parseInt(request.getParameter("txtId"));
                 dao.DocumentosDAO dao = new dao.DocumentosDAO();
-                
+
                 ArrayList<Documentos> documentos = dao.listarId(Id);
                 request.setAttribute("listaDocumentos", documentos);
-                
+
                 RequestDispatcher rd = request.getRequestDispatcher("listaestoque.jsp");
                 rd.forward(request, response);
-                
-                
-            }else if("Deletar".equals(opc)){
+
+            } else if ("Deletar".equals(opc)) {
                 modelo.Documentos doc = new modelo.Documentos();
                 int Id = Integer.parseInt(request.getParameter("txtId"));
                 doc.setId(Id);
@@ -75,30 +72,29 @@ public class ControleDocumento extends HttpServlet {
                 //doc.setData(data);
                 doc.setData(request.getParameter("btnData"));
                 doc.setTipo(request.getParameter("rdTipo"));
-                
+
                 dao.DocumentosDAO dao = new dao.DocumentosDAO();
                 dao.delete(doc);
-                
+
                 request.setAttribute("Mensagem", "Deletado com sucesso com sucesso!");
                 request.getRequestDispatcher("sucesso.jsp").forward(request, response);
-                
-            }else if("Alterar".equals(opc)){
+
+            } else if ("Alterar".equals(opc)) {
                 modelo.Documentos doc = new modelo.Documentos();
                 int Id = Integer.parseInt(request.getParameter("txtId"));
                 doc.setId(Id);
                 doc.setDescricao(request.getParameter("txtDescricao"));
                 doc.setData(request.getParameter("btnData"));
                 doc.setTipo(request.getParameter("rdTipo"));
-                
+
                 dao.DocumentosDAO dao = new dao.DocumentosDAO();
                 dao.atualizar(doc);
-                
+
                 request.setAttribute("Mensagem", "Atualizado com sucesso!");
                 request.getRequestDispatcher("sucesso.jsp").forward(request, response);
-        }
-            
-            
-        }catch(Exception e){
+            }
+
+        } catch (Exception e) {
             request.setAttribute("erro", e);
             request.getRequestDispatcher("erro.jsp").forward(request, response);
         }

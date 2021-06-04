@@ -141,8 +141,7 @@ public class DocumentosDAO {
         
     } 
        
-           
-    public void update(Usuario usuario)       
+               
     
     /*
     public ArraysList<Documentos>listarID(int id){

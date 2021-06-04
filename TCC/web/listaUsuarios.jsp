@@ -39,7 +39,8 @@
                 <tr>
                     <td><%= pes.getId()%></td> 
                     <td><%= pes.getNome()%></td>
-                    <td> <a href="<%=request.getContextPath()%>/ControleUsuarios?Confirma=Excluir&txtId=<%=pes.getId()%>">X</a></td>  
+                    <td> <a href="<%=request.getContextPath()%>/ControleUsuarios?Confirma=Excluir&txtId=<%=pes.getId()%>">X</a></td>
+                    <td> <a href="<%=request.getContextPath()%>/ControleUsuarios?Confirma=Alterar_1&Tipo=Pessoal&txtId=<%=pes.getId()%>">E</a></td>
                 </tr>
 
 
@@ -74,6 +75,7 @@
                     <td><%= emp.getNomeSocial()%></td>
                     <td> <%= emp.getNomeFantasia()%> </td>
                     <td> <a href="<%=request.getContextPath()%>/ControleUsuarios?Confirma=Excluir&txtId=<%=emp.getId()%>">X</a></td>
+                    <td> <a name="lTipo" value="Empresa" href="<%=request.getContextPath()%>/AltUsuarioEmp?txtId=<%=emp.getId()%>">E</a></td>
                 </tr>
 
 
@@ -88,6 +90,7 @@
         <table border="1">
             <thead>
                 <tr>
+                    <th>ID do Usuário</th>
                     <th>ID Funcionario</th>
                     <th>Nome</th>
                     <th>Função</th>
@@ -103,10 +106,12 @@
                 %>
 
                 <tr>
+                    <td><%= func.getId()%></td>
                     <td><%= func.getIdFunc()%></td> 
                     <td><%= func.getNome()%></td>
                     <td> <%= func.getFuncao()%> </td>
-                    <td> <a href="<%=request.getContextPath()%>/ControleUsuarios?Confirma=Excluir&txtId=<%=func.getIdFunc()%>">X</a></td>
+                    <td> <a href="<%=request.getContextPath()%>/ControleUsuarios?Confirma=Excluir&txtId=<%=func.getId()%>">X</a></td>
+                    <td> <a name="lTipo" value="Funcionario" href="<%=request.getContextPath()%>/AltUsuarioPes?txtId=<%=func.getId()%>">E</a></td>
                 </tr>
 
 

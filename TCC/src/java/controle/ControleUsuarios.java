@@ -25,9 +25,9 @@ public class ControleUsuarios extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
 
             String opc = request.getParameter("Confirma");
-            
+
             if ("Cadastrar".equals(opc)) {
-                
+
                 String tipo = request.getParameter("rdTipo");
                 UsuarioDAO dao = new UsuarioDAO();
                 Endereco end = new Endereco();
@@ -38,24 +38,22 @@ public class ControleUsuarios extends HttpServlet {
                 end.setNumero(numero);
                 int idEnd = dao.CadastrarEndereco(end);
                 end.setId(idEnd);
-                
-                
+
                 if ("Pessoal".equals(tipo)) {
-                
+
                     Pessoal usuario = new Pessoal();
                     usuario.setEmail(request.getParameter("txtEmail"));
                     usuario.setTelefone(request.getParameter("txtTelefone"));
                     usuario.setCelular(request.getParameter("txtCelular"));
                     usuario.setEndereco(end);
                     usuario.setSenha(request.getParameter("txtSenha"));
-                
-                /*
+
+                    /*
                 Usuario verifica = Autenticador.AutenticaEmail(usuario);
                 if(verifica == null){
                 request.setAttribute("Verifica", verifica);
                 request.getRequestDispatcher("FPessoal.jsp").forward(request, response);
                 }*/
-                     
                     int idUser = dao.CadastrarUsuario(usuario);
 
                     usuario.setNome(request.getParameter("txtNome"));
@@ -143,12 +141,12 @@ public class ControleUsuarios extends HttpServlet {
                 }
             } else {
                 if ("Listar".equals(opc)) {
-                    System.out.println("Passei por aqui 2");
+
                     UsuarioDAO dao = new UsuarioDAO();
                     ArrayList<Pessoal> user = dao.listarPessoal();
                     ArrayList<Empresa> user2 = dao.listaEmpresa();
                     ArrayList<Funcionario> user3 = dao.listaFuncionario();
-                    System.out.println("Passei por aqui 3");
+
                     request.setAttribute("ListaPessoal", user);
                     request.setAttribute("ListaEmpresa", user2);
                     request.setAttribute("ListaFuncionario", user3);
@@ -158,8 +156,9 @@ public class ControleUsuarios extends HttpServlet {
 
                 } else {
                     if ("Excluir".equals(opc)) {
-                        Usuario user = new Usuario();
+
                         UsuarioDAO dao = new UsuarioDAO();
+                        Usuario user = new Usuario();
 
                         int id = Integer.parseInt(request.getParameter("txtId"));
                         user.setId(id);
@@ -168,6 +167,51 @@ public class ControleUsuarios extends HttpServlet {
 
                         RequestDispatcher rd = request.getRequestDispatcher("operaSucesso.jsp");
                         rd.forward(request, response);
+
+                    } else {
+                        if ("Alterar_1".equals(opc)) {
+
+                            String tipo = request.getParameter("Tipo");
+
+                            if ("Pessoal".equals(tipo)) {
+
+                                int id = Integer.parseInt(request.getParameter("txtId"));
+                                request.setAttribute("id", id);
+
+                                RequestDispatcher rd = request.getRequestDispatcher("Gerente/AltUsuarioPes.jsp");
+                                rd.forward(request, response);
+
+                            }
+
+                        } else {
+                            if ("Alterar".equals(opc)) {
+
+                                String tipo = request.getParameter("Tipo");
+                                UsuarioDAO dao = new UsuarioDAO();
+
+                                switch (tipo) {
+                                    case "Pessoal":
+                                        Pessoal user = new Pessoal();
+
+                                        user.setEmail(request.getParameter("txtEmail"));
+                                        user.setTelefone(request.getParameter("txtTelefone"));
+                                        user.setCelular(request.getParameter("txtCelular"));
+                                        user.setSenha(request.getParameter("txtSenha"));
+                                        int idUser = Integer.parseInt(request.getParameter("txtId"));
+                                        user.setId(idUser);
+                                        dao.updateUsuario(user);
+
+                                        user.setNome(request.getParameter("txtNome"));
+                                        String aux = (request.getParameter("txtSexo"));
+                                        char sexo = aux.charAt(0);
+                                        user.setSexo(sexo);
+                                        dao.updatePessoal(user);
+
+                                        RequestDispatcher rd = request.getRequestDispatcher("operaSucesso.jsp");
+                                        rd.forward(request, response);
+                                }
+                            }
+                        }
                     }
                 }
             }

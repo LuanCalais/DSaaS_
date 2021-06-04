@@ -27,9 +27,9 @@ public class UsuarioDAO {
     public static final String SELECT_ALL_EMP = "SELECT * FROM view_empres";
     public static final String SELECT_ALL_FUNC = "SELECT * FROM view_func";
     public static final String DELETE_USER = "DELETE FROM usuario WHERE id = ?";
-    public static final String UPDATE_USUARIO = "UPDATE usuario SET email = ?, telefone = ?, celular = ?, cd_endereco = ?, senha = ? WHERE id = ?";
-    public static final String UPDATE_PESSOAL = "UPDATE pessoal SET nome = ?, sexo = ?, data_nasc = ? WHERE id = ?";
-    public static final String UPDATE_EMPRESA = "UPDATE empresa SET nomeSocial = ?, nomeFantasia = ? WHERE id = ?";
+    public static final String UPDATE_USUARIO = "UPDATE usuario SET email = ?, telefone = ?, celular = ?, senha = ? WHERE id = ?";
+    public static final String UPDATE_PESSOAL = "UPDATE pessoal SET nome = ?, sexo = ? WHERE cd_usuario = ?";
+    public static final String UPDATE_EMPRESA = "UPDATE empresa SET nomeSocial = ?, nomeFantasia = ? WHERE cd_usuario = ?";
     public static final String UPDATE_FUNC = "UPDATE funcionario SET funcao = ?, turno = ? WHERE idFunc = ?";
     public static final String SELECT_MAIL = "SELECT * FROM usuario WHERE email = ?";
     
@@ -315,6 +315,7 @@ public class UsuarioDAO {
             
             while(rs.next()){
                 Funcionario user = new Funcionario();
+                user.setId(rs.getInt("id"));
                 user.setIdFunc(rs.getInt("idFunc"));
                 user.setNome(rs.getString("nome"));
                 user.setFuncao(rs.getString("funcao"));
@@ -354,6 +355,7 @@ public class UsuarioDAO {
         }
     }
     
+    
     public void updateUsuario(Usuario usuario){
         Connection conexao = null;
         try{
@@ -362,9 +364,8 @@ public class UsuarioDAO {
             pstmt.setString(1, usuario.getEmail());
             pstmt.setString(2, usuario.getTelefone());
             pstmt.setString(3, usuario.getCelular());
-            pstmt.setInt(4, usuario.getEndereco().getId());
-            pstmt.setString(5, usuario.getSenha());
-            pstmt.setInt(6, usuario.getId());
+            pstmt.setString(4, usuario.getSenha());
+            pstmt.setInt(5, usuario.getId());
             pstmt.execute();
             
         }catch(Exception ex){
@@ -378,6 +379,75 @@ public class UsuarioDAO {
             }
         }
     }
+    
+    public void updatePessoal(Pessoal usuario){
+        Connection conexao = null;
+        try{
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(UPDATE_PESSOAL);
+            pstmt.setString(1, usuario.getNome());
+            pstmt.setString(2, String.valueOf(usuario.getSexo()));
+            //pstmt.setDate(3, usuario.getData_nasc());
+            pstmt.setInt(3, usuario.getId());
+            pstmt.execute();
+                    
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+        finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+    }
+    
+    public void updateEmpresa(Empresa usuario){
+        Connection conexao = null;
+        try{
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(UPDATE_EMPRESA);
+            pstmt.setString(1, usuario.getNomeSocial());
+            pstmt.setString(2, usuario.getNomeFantasia());
+            pstmt.setInt(3, usuario.getId());
+            pstmt.execute();
+            
+            
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+        finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+    }
+    
+    public void updateFuncionario(Funcionario usuario){
+        Connection conexao = null;
+        try{
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(UPDATE_FUNC);
+            pstmt.setString(1, usuario.getFuncao());
+            pstmt.setString(2, usuario.getTurno());
+            pstmt.setInt(3, usuario.getIdFunc());
+            pstmt.execute();
+            
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }
+        finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+    }
+    
     /*
     public Usuario VerificaEmail(Usuario usuario){
         Connection conexao = null;

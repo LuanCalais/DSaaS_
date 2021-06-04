@@ -1,7 +1,7 @@
 package modelo;
 
 public class Caixa {
-    
+
     private int id;
     private String tipo;
     private String descricao;
@@ -57,5 +57,5 @@ public class Caixa {
         total = quantidade * 5.00;
         this.total = total;
     }
-    
+
 }
