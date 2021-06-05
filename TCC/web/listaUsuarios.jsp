@@ -14,6 +14,7 @@
         <style>a {color: black;
            text-decoration: none;}</style>
         </head>
+        
         <body>
 
             <div class="div2">
@@ -39,8 +40,6 @@
                         <ul>
 
                             <li><a href="home.jsp">Home</a></li>    
-
-                            <li><a href="Gerente\gerente.jsp" >Área do Gerente</a></li>
 
                             <li><a href="Estoquista\estoquista.jsp">Área do Estoquista</a></li>
 

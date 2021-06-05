@@ -51,8 +51,8 @@
             <div class="GerenteUsuarios">
                 <h2>Gerenciador de Estoque</h2>  
 
-                <form id="F1" method="POST" action="ControleEstoque">
-                    <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" nome="txtId"><br> 
+                <form id="F1" method="POST" action=".../ControleEstoque">
+                    <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" name="txtId"><br> 
                     <input id="listar" type="submit" name="Confirma" value="Listar"> 
                 </form>
 
@@ -66,12 +66,15 @@
                         <option value="S" >S</option><option value="T" >T</option><option value="U" >U</option><option value="V" >V</option><option value="W" >W</option><option value="X" >X</option>
                         <option value="Y" >Y</option><option value="Z" >Z</option>
                     </select><br>
-                    Rua:<br> <input type="number" name="txtRua" maxlength="11" required><br>
-                    
+                    Rua:<br> <input type="number" name="txtRua" maxlength="11" required style="background-color:white"><br>
+
                     Status: <select name="txtStatus">
                         <option value="Ocupado">Ocupado</option>
                         <option value="Vazio">Vazio</option>
                     </select><br>
+
+                    <input id="BtnConfirma" type="submit" name="Confirma" value="Cadastrar" style="position: absolute;
+                                                                                                   left: 300px; top: 327px;">
 
                 </form>
 

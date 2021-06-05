@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="CSS\style_1.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-        <title>JSP Page</title>
+        <title>Tela de Alteracao Pessoa Juridica</title>
     </head>
     <body>
         <h1>Alteração Pessoa Jurídica</h1>
@@ -49,7 +49,7 @@
         <div class="cadastroEmp">
             <form id="FCadastro" method="POST" action="ControleUsuarios?Tipo=Empresa&txtId=<%=id%>">
 
-                <legend>Cadastro de Pessoa Jurídica</legend>
+                <legend>Alteração Pessoa Jurídica</legend>
                 Id da Empresa: <input type="text" value="<%=id%>" disabled style="width: 55px; text-align: center;" ><br>
                 Nome Social: <br> <input type="text" name="txtNomeSoc" maxlength="50" required><br>
                 Nome Fantasia: <br> <input type="text" name="txtNomeFant" maxlength="50" required><br>

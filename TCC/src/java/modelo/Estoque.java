@@ -1,12 +1,12 @@
 package modelo;
 
-public class Estoque extends Caixa{
+public class Estoque{
     
     private int id;
     private char referencia;
     private int rua;
     private String status;
-    private Caixa caixa;
+    private int id_caixa;
 
     public int getId() {
         return id;
@@ -40,12 +40,12 @@ public class Estoque extends Caixa{
         this.status = status;
     }
 
-    public Caixa getCaixa() {
-        return caixa;
+    public int getId_caixa() {
+        return id_caixa;
     }
 
-    public void setCaixa(Caixa caixa) {
-        this.caixa = caixa;
+    public void setId_caixa(int id_caixa) {
+        this.id_caixa = id_caixa;
     }
     
 }
