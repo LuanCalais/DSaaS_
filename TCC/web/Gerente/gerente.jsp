@@ -12,7 +12,6 @@
         </head>
 
         <body>
-            <h1>Página Principal do gerente</h1>
 
             <img src="../CSS/Imagens_1/Gerente.png" style="
             position: absolute;
@@ -48,6 +47,7 @@
 
 
         <div class="FormGerente">
+            <h1>Página Principal do gerente</h1>
             <div class="GerenteUsuarios">
                 <h2>Gerenciador de Caixas</h2>  
 

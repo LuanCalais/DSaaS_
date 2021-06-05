@@ -2,19 +2,19 @@ package modelo;
 
 public class Caixa {
 
-    private int id;
+    private int id_caixa;
     private String tipo;
     private String descricao;
     private int quantidade;
     private Usuario usuario;
     private double total;
 
-    public int getId() {
-        return id;
+    public int getId_caixa() {
+        return id_caixa;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_caixa(int id_caixa) {
+        this.id_caixa = id_caixa;
     }
 
     public String getTipo() {

@@ -12,3 +12,16 @@ CREATE TABLE caixas(
     CONSTRAINT fk_usuario FOREIGN KEY(cd_usuario) REFERENCES usuario(id)
     ON DELETE CASCADE ON UPDATE CASCADE
 );
+
+CREATE SEQUENCE seq_estoque;
+
+CREATE TABLE estoque(
+    id INTEGER DEFAULT NEXTVAL('seq_estoque'),
+    referencia CHAR NOT NULL,
+    rua INTEGER NOT NULL UNIQUE,
+    data_entrada TIMESTAMP,
+    status VARCHAR NOT NULL CHECK (status = 'Vazio' OR status = 'Ocupado'),
+    cd_caixa INTEGER,
+    CONSTRAINT pk_idEstoque PRIMARY KEY(id),
+    CONSTRAINT fk_caixa FOREIGN KEY (cd_caixa) REFERENCES caixa(id)
+);
