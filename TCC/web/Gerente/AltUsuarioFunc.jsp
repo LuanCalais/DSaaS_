@@ -50,13 +50,12 @@
         %>
 
         <div class="CadastroFunc" >
-            <form id="FCadastro" method="POST" action="ControleUsuarios?Tipo=Funcionario&txtId=<%=id%>">
-                <legend>Cadastro de Funcionário DSaaS</legend>
+            <form id="FCadastro" method="POST" action="ControleUsuarios?Tipo=Funcionario&txtId=<%=id%>&txtIdFunc=<%=idFunc%>">
+                <legend>Alteração Funcionário DSaaS</legend>
                 
                 Id do Usuário: <input type="text" value="<%=id%>" disabled style="width: 55px; text-align: center;"><br>
                 Id DSaaS: <br> <input type="text" value="<%=idFunc%>" disabled style="width: 55px; text-align: center;"><br>
                 Nome: <br><input type="text" name="txtNome" maxlength="50" required><br>
-                Identificador DSaaS: <br><input type="number" name="txtIdFunc" maxlength="10" required><br>
                 Função DSaaS: <br><select name="txtFuncao">
                     <option value="Gerente">Gerente</option>
                     <option value="Recepcao" >Recepcionista</option>
@@ -66,7 +65,6 @@
                     <option value = "Noturno">Noturno</option>
                     <option value="Diurno" >Diurno</option>
                 </select><br>
-                CPF: <br> <input type="text" name="txtCpf" maxlength="11" required><br>
                 Sexo: <select name="txtSexo">
                     <option value="M">M</option>
                     <option value="F">F</option>

@@ -234,7 +234,7 @@ public class ControleUsuarios extends HttpServlet {
 
                                     case "Empresa":
                                         Empresa emp = new Empresa();
-                                        
+
                                         emp.setEmail(request.getParameter("txtEmail"));
                                         emp.setTelefone(request.getParameter("txtTelefone"));
                                         emp.setCelular(request.getParameter("txtCelular"));
@@ -242,14 +242,40 @@ public class ControleUsuarios extends HttpServlet {
                                         int idUserEmp = Integer.parseInt(request.getParameter("txtId"));
                                         emp.setId(idUserEmp);
                                         dao.updateUsuario(emp);
-                                        
+
                                         emp.setNomeSocial(request.getParameter("txtNomeSoc"));
                                         emp.setNomeFantasia(request.getParameter("txtNomeFant"));
                                         dao.updateEmpresa(emp);
-                                        
+
                                         RequestDispatcher rdEmp = request.getRequestDispatcher("operaSucesso.jsp");
                                         rdEmp.forward(request, response);
-                                        
+
+                                    case "Funcionario":
+                                        Funcionario func = new Funcionario();
+
+                                        func.setEmail(request.getParameter("txtEmail"));
+                                        func.setTelefone(request.getParameter("txtTelefone"));
+                                        func.setCelular(request.getParameter("txtCelular"));
+                                        func.setSenha(request.getParameter("txtSenha"));
+                                        int idUser1 = Integer.parseInt(request.getParameter("txtId"));
+                                        func.setId(idUser1);
+                                        dao.updateUsuario(func);
+
+                                        func.setNome(request.getParameter("txtNome"));
+                                        String auxFunc = (request.getParameter("txtSexo"));
+                                        char sexo1 = auxFunc.charAt(0);
+                                        func.setSexo(sexo1);
+                                        dao.updatePessoal(func);
+
+                                        func.setFuncao(request.getParameter("txtFuncao"));
+                                        func.setTurno(request.getParameter("txtTurno"));
+                                        int idFunc = Integer.parseInt(request.getParameter("txtIdFunc"));
+                                        func.setIdFunc(idFunc);
+                                        dao.updateFuncionario(func);
+
+                                        RequestDispatcher rdFunc = request.getRequestDispatcher("operaSucesso.jsp");
+                                        rdFunc.forward(request, response);
+
                                 }
                             }
                         }
