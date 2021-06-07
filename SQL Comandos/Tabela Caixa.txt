@@ -31,7 +31,7 @@ CREATE TABLE estoque(
 CREATE SEQUENCE seq_solicitacoes;
 
 CREATE TABLE solicitacoes(
-	id INTEGER DEFAULT NEXTVAL('seq_solicitacoes'),
+    id INTEGER DEFAULT NEXTVAL('seq_solicitacoes'),
     data_solicitacao DATE,
     cd_usuario INTEGER NOT NULL,
     cd_caixa INTEGER NOT NULL,
@@ -42,4 +42,9 @@ CREATE TABLE solicitacoes(
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+
+CREATE VIEW view_solicitacoes AS 
+SELECT solicita.id, usu.email, caixa.descricao
+FROM usuario AS usu, caixa AS caixa, solicitacoes AS solicita
+WHERE usu.id = solicita.cd_usuario AND caixa.id = solicita.cd_caixa; 
 

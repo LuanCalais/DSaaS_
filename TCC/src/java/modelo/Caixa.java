@@ -8,8 +8,21 @@ public class Caixa {
     private String tipo;
     private String descricao;
     private int quantidade;
-    private Usuario usuario;
+    private int cd_usuario;
     private double total;
+
+    public Caixa(int id_caixa, String tipo, String descricao, int quantidade, int usuario, double total) {
+        this.id_caixa = id_caixa;
+        this.tipo = tipo;
+        this.descricao = descricao;
+        this.quantidade = quantidade;
+        this.cd_usuario = usuario;
+        this.total = total;
+    }
+    
+    public Caixa(){
+      
+    }
 
     public int getId_caixa() {
         return id_caixa;
@@ -43,21 +56,22 @@ public class Caixa {
         this.quantidade = quantidade;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public int getCd_usuario() {
+        return cd_usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(int cd_usuario) {
+        this.cd_usuario = cd_usuario;
     }
-    
+
     public double getTotal() {
         return total;
     }
 
     public void setTotal(double total) {
-        total = quantidade * 5.00;
         this.total = total;
     }
+    
+
 
 }
