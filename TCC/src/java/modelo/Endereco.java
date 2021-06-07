@@ -7,6 +7,7 @@ public class Endereco {
     private String logadouro;
     private String bairro;
     private int numero;
+    private String complemento;
 
     public Endereco() {
     }
@@ -49,6 +50,14 @@ public class Endereco {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
     }
     
 }

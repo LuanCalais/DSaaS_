@@ -15,7 +15,7 @@ import util.ConectaBancoUsuario;
 
 public class UsuarioDAO {
     
-    public static final String INSERT_END = "INSERT INTO endereco(cep, logadouro, bairro, numero) VALUES(?, ?, ?, ?)";
+    public static final String INSERT_END = "INSERT INTO endereco(cep, logadouro, bairro, numero, complemento) VALUES(?, ?, ?, ?, ?)";
     public static final String INSERT_USU = "INSERT INTO usuario(email, telefone, celular, cd_endereco, senha) VALUES(?, ?, ?, ?, ?)";
     public static final String INSERT_PESSOAL = "INSERT INTO pessoal(nome, cpf, sexo, data_nasc, cd_usuario) VALUES(?, ?, ?, ?, ?)";
     public static final String INSERT_EMPRESA = "INSERT INTO empresa(nomeSocial, nomeFantasia, cnpj, cd_usuario) VALUES(?, ?, ?, ?)";
@@ -44,6 +44,7 @@ public class UsuarioDAO {
             pstmt.setString(2, endereco.getLogadouro());
             pstmt.setString(3, endereco.getBairro());
             pstmt.setInt(4, endereco.getNumero());
+            pstmt.setString(5, endereco.getComplemento());
             returnedId = pstmt.executeUpdate();
             
             ResultSet keys = pstmt.getGeneratedKeys();

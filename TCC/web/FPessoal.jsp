@@ -67,7 +67,7 @@
                     Logadouro:<br> <input type="text" name="txtLogadouro" maxlength="50" required><br>
                     Bairro:<br> <input type="text" name="txtBairro" maxlength="30" required><br>
                     Nº:<br> <input type="number" name="txtNumero" required><br>
-                    Complemento(Opicional):<br> <input type="text" name="txtComplemento">
+                    Complemento(Opicional):<br> <input type="text" name="txtComplemento" maxlength="70" >
                 </fieldset>
 
                 Dara de Nascimento:<br> <input type="date" name="txtDataNasc"><br>

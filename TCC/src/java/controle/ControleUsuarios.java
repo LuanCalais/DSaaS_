@@ -36,6 +36,7 @@ public class ControleUsuarios extends HttpServlet {
                 end.setBairro(request.getParameter("txtBairro"));
                 int numero = Integer.parseInt(request.getParameter("txtNumero"));
                 end.setNumero(numero);
+                end.setComplemento(request.getParameter("txtComplemento"));
                 int idEnd = dao.CadastrarEndereco(end);
                 end.setId(idEnd);
 

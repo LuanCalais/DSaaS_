@@ -1,5 +1,7 @@
 package modelo;
 
+import java.sql.Date;
+
 public class Caixa {
 
     private int id_caixa;
@@ -48,7 +50,7 @@ public class Caixa {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
+    
     public double getTotal() {
         return total;
     }
