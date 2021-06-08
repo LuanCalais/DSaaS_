@@ -447,35 +447,5 @@ public class UsuarioDAO {
                 throw new RuntimeException(ex);
             }
         }
-    }
-    
-    /*
-    public Usuario VerificaEmail(Usuario usuario){
-        Connection conexao = null;
-        try{
-        conexao = ConectaBancoUsuario.getConexao();
-        
-        PreparedStatement pstmt = conexao.prepareStatement(SELEC_MAIL);
-        pstmt.setString(1, usuario.getEmail());
-        
-        ResultSet rs = pstmt.executeQuery();
-        rs.next();
-        usuario.setEmail(rs.getString("email"));
-        
-        }catch(Exception ex){
-            throw new RuntimeException(ex);
-        }
-        finally{
-            try{
-                conexao.close();
-            }catch(SQLException ex){
-                throw new RuntimeException(ex);
-            }
-        }
-        
-        return usuario;
-        
-    }
-*/
-        
+    }    
 }

@@ -13,13 +13,16 @@ import util.ConectaBancoUsuario;
 
 public class CaixaDAO {
 
-    public static final String INSERT_SOL = "INSERT INTO solicitacoes(data_solicitacao, cd_usuario, cd_caixa) VALUES(CURRENT_DATE, (SELECT id FROM usuario WHERE email = ?), ?)";
+    public static final String INSERT_SOL = "INSERT INTO solicitacoes(data_solicitacao, cd_usuario, cd_caixa, status) VALUES(CURRENT_DATE, (SELECT id FROM usuario WHERE email = ?), ?, ?)";
     public static final String LISTAR_SOL = "SELECT * FROM view_solicitacoes";
+    public static final String LISTAR_ID_SOL = "SELECT * FROM view_solicitacoes WHERE id = ?";
     public static final String DELETE_SOL = "DELETE FROM solicitacoes WHERE id = ?";
+    public static final String INSERT_CAIXA_SOL = "INSERT INTO caixa(tipo, descricao, quantidade, cd_usuario, data_confirm, total) VALUES(?, ?, ?, (SELECT id FROM usuario WHERE email = ?), CURRENT_DATE, ?)";
     public static final String INSERT = "INSERT INTO caixa(tipo, descricao, quantidade, cd_usuario, data_confirm, total) VALUES(?, ?, ?, ?, CURRENT_DATE, ?)";
     public static final String LISTAR = "SELECT * FROM caixa";
     public static final String DELETE = "DELETE FROM caixa WHERE id = ?";
     public static final String UPDATE = "UPDATE caixa SET tipo = ?, descricao = ?, quantidade = ?, total = ? WHERE id = ?";
+    public static final String CONFIRMA = "UPDATE solicitacoes SET status = ?";
 
     public void CadastrarSolicitacao(Solicitacoes solicita) {
         Connection conexao = null;
@@ -28,6 +31,7 @@ public class CaixaDAO {
             PreparedStatement pstmt = conexao.prepareStatement(INSERT_SOL);
             pstmt.setString(1, solicita.getEmail());
             pstmt.setInt(2, solicita.getCd_caixa());
+            pstmt.setString(3, solicita.getStatus());
             pstmt.execute();
 
         } catch (Exception ex) {
@@ -39,6 +43,38 @@ public class CaixaDAO {
                 throw new RuntimeException(ex);
             }
         }
+    }
+
+    public int cadastrarCaixaSolicitacao(Caixa caixa) {
+        Connection conexao = null;
+        int returnedId = 0;
+        try {
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(INSERT_CAIXA_SOL, PreparedStatement.RETURN_GENERATED_KEYS);
+            pstmt.setString(1, caixa.getTipo());
+            pstmt.setString(2, caixa.getDescricao());
+            pstmt.setInt(3, caixa.getQuantidade());
+            pstmt.setString(4, caixa.getEmail_usu());
+            pstmt.setDouble(5, caixa.getTotal());
+            returnedId = pstmt.executeUpdate();
+
+            ResultSet keys = pstmt.getGeneratedKeys();
+            if (keys.next()) {
+                returnedId = keys.getInt("id");
+            } else {
+                returnedId = -1;
+            }
+
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+        return returnedId;
     }
 
     public void deletarSolicitacoes(Solicitacoes solicita) {
@@ -71,8 +107,12 @@ public class CaixaDAO {
             while (rs.next()) {
                 Solicitacoes sol = new Solicitacoes();
                 sol.setId_solicitacoes(rs.getInt("id"));
+                sol.setCd_usuario(rs.getInt("cd_usuario"));
                 sol.setEmail(rs.getString("email"));
+                sol.setTipo(rs.getString("tipo"));
                 sol.setDscricao(rs.getString("descricao"));
+                sol.setQuantidade(rs.getInt("quantidade"));
+                sol.setStatus(rs.getString("status"));
                 resultado.add(sol);
             }
 
@@ -86,6 +126,58 @@ public class CaixaDAO {
             }
         }
         return resultado;
+    }
+
+    public Solicitacoes listarIdSol(int id) {
+        Connection conexao = null;
+        Solicitacoes sol = new Solicitacoes();
+        try {
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(LISTAR_ID_SOL);
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                sol.setId_solicitacoes(rs.getInt("id"));
+                sol.setCd_usuario(rs.getInt("cd_usuario"));
+                sol.setEmail(rs.getString("email"));
+                sol.setTipo(rs.getString("tipo"));
+                sol.setDscricao(rs.getString("descricao"));
+                sol.setQuantidade(rs.getInt("quantidade"));
+                sol.setStatus(rs.getString("status"));
+            }
+
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+
+        return sol;
+    }
+
+    public void Confirma(Solicitacoes solicitacoes) {
+        Connection conexao = null;
+        try {
+
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(CONFIRMA);
+            pstmt.setString(1, solicitacoes.getStatus());
+            pstmt.execute();
+
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
     }
 
     public int CadastrarCaixa(Caixa caixa) {
@@ -117,9 +209,9 @@ public class CaixaDAO {
                 throw new RuntimeException(ex);
             }
         }
-        
+
         return returnedId;
-        
+
     }
 
     public ArrayList<Caixa> listarCaixas() {
@@ -194,5 +286,4 @@ public class CaixaDAO {
             }
         }
     }
-
 }

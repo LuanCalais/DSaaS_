@@ -37,7 +37,7 @@
 
                             <li><a href="home.jsp">Home</a></li>    
 
-                            <li><a href="FPessoal.jsp">Área do Cliente</a></li>
+                            <li><a href="Cliente\cliente.jsp">Área do Cliente</a></li>
 
                             <li><a href="Gerente\gerente.jsp" >Área do Gerente</a></li>
 
@@ -53,11 +53,6 @@
         <div class="mensagem">
             <h1>A operação foi um sucesso!</h1>
         </div>
-
-      <!--  <a href="Gerente/gerente.jsp" id="BtnConfirma" style="position: absolute;
-           top: 660px; left: 590px;
-           text-decoration: none;
-           font-size: 20px;" >Voltar</a> RETIRADO PARA REAPROVEITAMENTO -->
 
         <div class="header">
             <span class="title">DSaaS</span>

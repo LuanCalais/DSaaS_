@@ -55,12 +55,12 @@
 
                 <form id="F1" method="POST" action=".../ControleCaixas">
                     <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" name="txtId"><br> 
-                    <input id="listar" type="submit" name="Confirma" value="Listar"> 
+                    <input id="listar" type="submit" name="Confirma" value="Listar Solicitados" style="position:absolute; top: 158px; left: 260px;" > 
                     <input id="BtnConfirma" type="submit" name="Confirma" value="Listar Caixas" style="position: absolute;
-                           left: 347px; top: 475px;">
+                           left: 340px; top: 348px;">
                 </form>
 
-                <h2>Cadastrar Solicitação</h2>  
+                <h2>Nova Solicitação</h2>  
                 <form id="F1" method="POST" action=".../ControleCaixas"> 
 
                     Tipo: <select name="txtTipo" required>
@@ -74,12 +74,10 @@
 
                     Quantidade:<br> <input id="Quantidade" type="number" name="txtQuantidade" required style="background-color: white;"><br>
 
-                    Código do Usuário: <br> <input id="cd_usuario" type="number" name="txtUsuario" required style="background-color: white; width: 80px;"><br>
+                    Confirme seu E-mail: <br> <input id="email" type="email" name="txtEmail" required maxlength="30" style="background-color: white; width: 130px;"><br>
 
-                    Código do Estoque: <br> <input id="cd_estoque" type="number" name="txtEstoque" required style="background-color: white; width: 80px;"><br>
-
-                    <input id="BtnConfirma" type="submit" name="Confirma" value="Cadastrar Caixa" style="position: absolute;
-                           left: 187px; top: 475px;">
+                    <input id="BtnConfirma" type="submit" name="Confirma" value="Solicitar" style="position: absolute;
+                           left: 357px; top: 397px;">
 
                 </form>
 

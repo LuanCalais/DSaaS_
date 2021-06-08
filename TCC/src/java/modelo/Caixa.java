@@ -10,14 +10,16 @@ public class Caixa {
     private int quantidade;
     private int cd_usuario;
     private double total;
+    private String email_usu;
 
-    public Caixa(int id_caixa, String tipo, String descricao, int quantidade, int usuario, double total) {
+    public Caixa(int id_caixa, String tipo, String descricao, int quantidade, int usuario, double total, String email_usu) {
         this.id_caixa = id_caixa;
         this.tipo = tipo;
         this.descricao = descricao;
         this.quantidade = quantidade;
         this.cd_usuario = usuario;
         this.total = total;
+        this.email_usu = email_usu;
     }
     
     public Caixa(){
@@ -71,7 +73,13 @@ public class Caixa {
     public void setTotal(double total) {
         this.total = total;
     }
-    
 
+    public String getEmail_usu() {
+        return email_usu;
+    }
+
+    public void setEmail_usu(String email_usu) {
+        this.email_usu = email_usu;
+    }
 
 }

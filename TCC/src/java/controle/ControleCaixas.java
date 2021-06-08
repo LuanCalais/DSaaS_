@@ -17,6 +17,7 @@ import modelo.CaixaBuilder;
 import modelo.Endereco;
 import modelo.Estoque;
 import modelo.Pessoal;
+import modelo.Solicitacoes;
 
 @WebServlet(name = "ControleCaixas", urlPatterns = {"/ControleCaixas"})
 public class ControleCaixas extends HttpServlet {
@@ -108,6 +109,70 @@ public class ControleCaixas extends HttpServlet {
                                 request.setAttribute("Mensagem", "Caixa alterada com sucesso com sucesso!");
                                 request.getRequestDispatcher("operaSucesso.jsp").forward(request, response);
 
+                            } else {
+                                if ("Solicitar".equals(opc)) {
+
+                                    CaixaDAO dao = new CaixaDAO();
+                                    Solicitacoes solicita = new Solicitacoes();
+                                    int quantidade = Integer.parseInt(request.getParameter("txtQuantidade"));
+                                    Caixa caixa = new CaixaBuilder()
+                                            .comTipo(request.getParameter("txtTipo"))
+                                            .comDescricao(request.getParameter("txtDescricao"))
+                                            .comQuantidade(quantidade)
+                                            .comEmail_usu(request.getParameter("txtEmail"))
+                                            .constroi();
+
+                                    int idCaixa = dao.cadastrarCaixaSolicitacao(caixa);
+                                    caixa.setId_caixa(idCaixa);
+
+                                    solicita.setCd_caixa(idCaixa);
+                                    solicita.setEmail(request.getParameter("txtEmail"));
+                                    solicita.setStatus("Pendente");
+
+                                    dao.CadastrarSolicitacao(solicita);
+
+                                    request.setAttribute("Mensagem", "Solicitação registrada com sucesso com sucesso!");
+                                    request.getRequestDispatcher("operaSucesso.jsp").forward(request, response);
+
+                                } else {
+                                    if ("Listar Solicitados".equals(opc)) {
+
+                                        CaixaDAO dao = new CaixaDAO();
+
+                                        ArrayList<Solicitacoes> listaSolicita = dao.listarSolicitacoes();
+                                        request.setAttribute("ListaSolicitados", listaSolicita);
+
+                                        RequestDispatcher rd = request.getRequestDispatcher("Cliente/listaSolicitados.jsp");
+                                        rd.forward(request, response);
+
+                                    } else {
+                                        if ("Buscar ID".equals(opc)) {
+
+                                            CaixaDAO dao = new CaixaDAO();
+                                            int id = Integer.parseInt(request.getParameter("txtId"));
+                                            Solicitacoes solicita = dao.listarIdSol(id);
+
+                                            request.setAttribute("BuscaId", solicita);
+
+                                            RequestDispatcher rd = request.getRequestDispatcher("Cliente/listaId.jsp");
+                                            rd.forward(request, response);
+
+                                        }else{
+                                            if("Excluir_Sol".equals(opc)){
+                                                CaixaDAO dao = new CaixaDAO();
+                                                Solicitacoes sol = new Solicitacoes();
+                                                
+                                                int id = Integer.parseInt(request.getParameter("txtId"));
+                                                
+                                                sol.setId_solicitacoes(id);
+                                                dao.deletarSolicitacoes(sol);
+                                                
+                                                request.setAttribute("Mensagem", "Deleção efetuada com sucesso!");
+                                                request.getRequestDispatcher("operaSucesso.jsp").forward(request, response);
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

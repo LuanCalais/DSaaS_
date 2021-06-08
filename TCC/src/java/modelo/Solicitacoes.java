@@ -1,12 +1,15 @@
 package modelo;
 
-public class Solicitacoes {
+public class Solicitacoes{
 
     private int id_solicitacoes;
     private int cd_usuario;
     private String email;
     private int cd_caixa;
     private String dscricao;
+    private String tipo;
+    private int quantidade;
+    private String status;
 
     public int getId_solicitacoes() {
         return id_solicitacoes;
@@ -46,6 +49,30 @@ public class Solicitacoes {
 
     public void setDscricao(String dscricao) {
         this.dscricao = dscricao;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
     
 }

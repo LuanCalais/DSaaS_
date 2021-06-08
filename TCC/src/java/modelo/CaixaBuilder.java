@@ -8,6 +8,7 @@ public class CaixaBuilder{
     private int quantidade = 0;
     private int cd_usuario = 0;
     private double total = 0;
+    private String email_usu;
     
     public CaixaBuilder comId_caixa(int id_caixa){
         this.id_caixa = id_caixa;
@@ -40,8 +41,13 @@ public class CaixaBuilder{
         return total;
     }
     
+    public CaixaBuilder comEmail_usu(String email_usu){
+        this.email_usu = email_usu;
+        return this;
+    }
+    
     public Caixa constroi(){
-        return new Caixa(id_caixa, tipo, descricao, quantidade, cd_usuario, comTotal());
+        return new Caixa(id_caixa, tipo, descricao, quantidade, cd_usuario, comTotal(), email_usu);
     } 
     
 }

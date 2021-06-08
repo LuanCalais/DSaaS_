@@ -35,6 +35,7 @@ CREATE TABLE solicitacoes(
     data_solicitacao DATE,
     cd_usuario INTEGER NOT NULL,
     cd_caixa INTEGER NOT NULL,
+    status VARCHAR NOT NULL CHECK (status = 'Pendente' OR status = 'Confirmado'),
     CONSTRAINT pk_solicitacoes PRIMARY KEY(id),
     CONSTRAINT fk_usuario FOREIGN KEY(cd_usuario) REFERENCES usuario(id)
     ON DELETE CASCADE ON UPDATE CASCADE,
@@ -44,7 +45,6 @@ CREATE TABLE solicitacoes(
 
 
 CREATE VIEW view_solicitacoes AS 
-SELECT solicita.id, usu.email, caixa.descricao
+SELECT solicita.id, usu.id AS cd_usuario, usu.email, caixa.tipo, caixa.descricao, caixa.quantidade, solicita.status
 FROM usuario AS usu, caixa AS caixa, solicitacoes AS solicita
 WHERE usu.id = solicita.cd_usuario AND caixa.id = solicita.cd_caixa; 
-

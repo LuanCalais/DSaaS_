@@ -46,7 +46,7 @@
         </div>
 
 
-        <div class="tabelasUser">
+        <div class="tabelasUser" style="left:500px;" >
             <h1>Lista Estoque</h1>
             <table border="1">
                 <thead>
@@ -78,6 +78,7 @@
 
                 </tbody>
             </table>
+        </div>
 
 
 
@@ -90,14 +91,11 @@
                 <button><a id="SobreNos" href="http://localhost:8080/TCC/SobreNos.html">Sobre Nós</a></button>
             </div>  
 
-            <footer class="fotterHome" style="top: 670px;
-                    background-color: white;" >
-                <h2>Fale Conosco</h2>
-                <div style="position:absolute;top:5px; left: -462px;">
-                    <a href="https://www.facebook.com/profile.php?id=100068708837828" target="_blank"><img id="face" src="CSS/Imagens_1/face_logo.png"></a>
-                    <a href="https://www.instagram.com/dsaas_estocagem/" target="_blank"> <img id="insta" src="CSS/Imagens_1/insta_logo.png"></a>
-                </div>
-            </footer>
+        <footer class="fotterHome" style="top: 870px;" >
+            <h2>Fale Conosco</h2>
+            <a href="https://www.facebook.com/profile.php?id=100068708837828" target="_blank"><img id="face" src="CSS/Imagens_1/face_logo.png"></a>
+            <a href="https://www.instagram.com/dsaas_estocagem/" target="_blank"> <img id="insta" src="CSS/Imagens_1/insta_logo.png"></a>
+        </footer>
 
     </body>
 </html>
