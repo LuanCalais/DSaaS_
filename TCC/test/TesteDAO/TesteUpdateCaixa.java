@@ -11,21 +11,15 @@ public class TesteUpdateCaixa {
         CaixaDAO dao = new CaixaDAO();
 
         Caixa caixa = new CaixaBuilder()
-                .comId_caixa(2)
-                .comTipo("Documentos3")
-                .comDescricao("Recibos Pagos2")
-                .comQuantidade(15)
-                .comCd_usuario(200)
+                .comId_caixa(3)
+                .comTipo("Revistas")
+                .comDescricao("Quadrinhos antigos 2")
+                .comQuantidade(32)
                 .constroi();
 
-        dao.CadastrarCaixa(caixa);
+        dao.updateCaixa(caixa);
 
-        System.out.println("Id: " + caixa.getId_caixa()
-                + "\nTipo: " + caixa.getTipo()
-                + "\nDescrição: " + caixa.getDescricao()
-                + "\nQuantidade: " + caixa.getQuantidade()
-                + "\nUsuario: " + caixa.getCd_usuario()
-                + "\nTotal: " + caixa.getTotal());
+        System.out.println("Caixa alterada com sucesso!!!");
 
     }
 

@@ -16,6 +16,7 @@ public class EstoqueDAO {
     public static final String SELECT_ALL = "SELECT * FROM estoque";
     public static final String SELECT_ID = "SELECT * FROM estoque WHERE id = ?";
     public static final String ALTERAR = "UPDATE estoque SET rua = ?, status = ? WHERE id = ?";
+    public static final String UPDATE = "UPDATE estoque SET cd_caixa = ?, status = 'Ocupado', data_entrada = CURRENT_DATE WHERE id = ?";
 
     public void cadastraEstoque(Estoque estoque) {
         Connection conexao = null;
@@ -48,6 +49,27 @@ public class EstoqueDAO {
             pstmt.setInt(1, estoque.getRua());
             pstmt.setString(2, estoque.getStatus());
             pstmt.setInt(3, estoque.getId());
+            pstmt.execute();
+            
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+    }
+    
+    public void updateCadastroCaixa(Estoque estoque){
+        Connection conexao = null;
+        try{
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(UPDATE);
+            
+            pstmt.setInt(1, estoque.getId_caixa());
+            pstmt.setInt(2, estoque.getId());
             pstmt.execute();
             
         }catch(Exception ex){

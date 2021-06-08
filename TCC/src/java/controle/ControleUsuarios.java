@@ -29,6 +29,7 @@ public class ControleUsuarios extends HttpServlet {
             if ("Cadastrar".equals(opc)) {
 
                 String tipo = request.getParameter("rdTipo");
+                
                 UsuarioDAO dao = new UsuarioDAO();
                 Endereco end = new Endereco();
                 end.setCep(request.getParameter("txtCep"));

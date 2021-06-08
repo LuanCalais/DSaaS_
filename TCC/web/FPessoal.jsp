@@ -34,7 +34,9 @@
 
                             <li><a href="home.jsp">Home</a></li>    
 
-                            <li><a href="Logar.jsp">Logar</a></li>  
+                            <li><a href="Logar.jsp">Logar</a></li>
+                            
+                            <li> <a href="Cliente\cliente.jsp">Área do Cliente</a></li>
 
                             <li><a href="Gerente\gerente.jsp" >Área do Gerente</a></li>
 

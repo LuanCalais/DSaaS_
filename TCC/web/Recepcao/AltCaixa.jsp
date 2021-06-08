@@ -5,10 +5,10 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="CSS\style_1.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-        <title>Tela de Alteracao Estoque</title>
+        <title>Tela de Alteracao Caixa</title>
     </head>
     <body>
-        <h1>Alteração Dados Estoque</h1>
+        <h1>Alteração Dados de Caixa</h1>
 
         <img src="CSS/Imagens_1/Logo.png" style="
              position: absolute;
@@ -34,11 +34,11 @@
 
                             <li><a href="home.jsp">Home</a></li>    
 
-                            <li> <a href="Cliente\cliente.jsp">Área do Cliente</a></li>
+                            <li><a href="Cliente\cliente.jsp">Área do Cliente</a></li>
+                            
+                            <li><a href="Gerente\gerente.jsp"> Área do Gerente</a></li>
 
-                            <li><a href="Gerente\gerente.jsp">Área do Gerente</a></li>
-
-                            <li><a href="Recepcao\recepcao.jsp">Área do Recepcionista</a></li>
+                            <li><a href="Estoquista\estoquista.jsp">Área do Estoquista</a></li>
                         </ul>
                     </div>
                 </div>
@@ -48,16 +48,22 @@
         <% int id = (Integer) request.getAttribute("id");%>
 
         <div class="cadastroEmp">
-            <form id="FCadastro" method="POST" action="ControleEstoque?Confirma=Alterar&txtId=<%=id%>">
+            <form id="FCadastro" method="POST" action="ControleCaixas?Confirma=Alterar&txtId=<%=id%>">
 
-                <legend>Alteração Estoque</legend>
-                Id do Estoque: <input type="text" value="<%=id%>" disabled style="width: 55px; text-align: center;" ><br>
-                Rua:<br> <input type="number" name="txtRua" maxlength="11" required><br>
+                <legend>Alteração Caixa</legend>
+                
+                Id da Caixa: <input type="text" value="<%=id%>" disabled style="width: 55px; text-align: center;"><br>
+                
+                Tipo: <select name="txtTipo" required>
+                    <option value="Documento">Documento</option>
+                    <option value="Recibo">Recibo</option>
+                    <option value="Pessoal">Pessoal</option>
+                    <option value="Outros" >Outros</option>
+                </select><br>
 
-                Status: <select name="txtStatus">
-                    <option value="Ocupado">Ocupado</option>
-                    <option value="Vazio">Vazio</option>
-                </select>
+                Descrição:<br> <input id="descricao" type="text" name="txtDescricao" maxlength="30" required style="background-color: white;"><br>
+
+                Quantidade:<br> <input id="Quantidade" type="number" name="txtQuantidade" required style="background-color: white;"><br>
 
                 <input id="BtnConfirma" type="submit" name="Confirma" value="Alterar">
             </form>

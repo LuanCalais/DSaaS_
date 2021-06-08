@@ -3,20 +3,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Pagina Principal Estoquista</title>
+        <title>Pagina principal do Cliente</title>
         <link rel="stylesheet" href="..\CSS\style_1.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
         <style>a {
                 color: black;
-                text-decoration: none;}</style>
+                text-decoration: none;}
+            </style>
         </head>
-
         <body>
 
-            <img src="../CSS/Imagens_1/Gerente.png" style="
+            <img src="../CSS/Imagens_1/Cliente.png" style="
             position: absolute;
-            top: 750px;
-            left: 550px;
+            top: 705.5px;
+            left: -70px;
             ">
 
         <div class="div2">
@@ -36,11 +36,11 @@
 
                             <li><a href="..\home.jsp">Home</a></li>    
 
-                            <li> <a href="..\Cliente\cliente.jsp">Área do Cliente</a></li>
-
                             <li><a href="..\Gerente\gerente.jsp">Área do Gerente</a></li>
 
-                            <li><a href="..\Recepcao\recepcao.jsp">Área do Recepcionista</a></li>
+                            <li><a href="..\Estoquista\estoquista.jsp">Área do Estoquista</a></li>
+
+                            <li><a href="Recepcao\recepcao.jsp">Área do Recepcionista</a></li>
                         </ul>
                     </div>
                 </div>
@@ -48,35 +48,38 @@
         </div>
 
 
-            <div class="FormGerente" style="top: 400px;" >
-            <h1>Página Principal do Estoquista</h1>
+        <div class="FormGerente" style="top: 400px;">
+            <h1>Página Principal do Cliente</h1>
             <div class="GerenteUsuarios">
-                <h2>Gerenciador de Estoque</h2>  
+                <h2>Gerenciador de Solicitações</h2>  
 
-                <form id="F1" method="POST" action=".../ControleEstoque">
+                <form id="F1" method="POST" action=".../ControleCaixas">
                     <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" name="txtId"><br> 
                     <input id="listar" type="submit" name="Confirma" value="Listar"> 
+                    <input id="BtnConfirma" type="submit" name="Confirma" value="Listar Caixas" style="position: absolute;
+                           left: 347px; top: 475px;">
                 </form>
 
-                <h2>Cadastrar novo estoque</h2>  
-                <form id="F1" method="POST" action=".../ControleEstoque"> 
+                <h2>Cadastrar Solicitação</h2>  
+                <form id="F1" method="POST" action=".../ControleCaixas"> 
 
-                    Referencia: <select name="txtReferencia">
-                        <option value="A" >A</option><option value="B" >B</option><option value="C" >C</option><option value="D" >D</option><option value="E" >E</option><option value="F" >F</option>
-                        <option value="G" >G</option><option value="H" >H</option><option value="I" >I</option><option value="J" >J</option><option value="K" >K</option><option value="L" >L</option>
-                        <option value="M" >M</option><option value="M" >N</option><option value="O" >O</option><option value="P" >P</option><option value="Q" >Q</option><option value="R" >R</option>
-                        <option value="S" >S</option><option value="T" >T</option><option value="U" >U</option><option value="V" >V</option><option value="W" >W</option><option value="X" >X</option>
-                        <option value="Y" >Y</option><option value="Z" >Z</option>
-                    </select><br>
-                    Rua:<br> <input type="number" name="txtRua" maxlength="11" required style="background-color:white"><br>
-
-                    Status: <select name="txtStatus">
-                        <option value="Ocupado">Ocupado</option>
-                        <option value="Vazio">Vazio</option>
+                    Tipo: <select name="txtTipo" required>
+                        <option value="Documento">Documento</option>
+                        <option value="Recibo">Recibo</option>
+                        <option value="Pessoal">Pessoal</option>
+                        <option value="Outros" >Outros</option>
                     </select><br>
 
-                    <input id="BtnConfirma" type="submit" name="Confirma" value="Cadastrar" style="position: absolute;
-                                                                                                   left: 300px; top: 327px;">
+                    Descrição:<br> <input id="descricao" type="text" name="txtDescricao" maxlength="30" required style="background-color: white;"><br>
+
+                    Quantidade:<br> <input id="Quantidade" type="number" name="txtQuantidade" required style="background-color: white;"><br>
+
+                    Código do Usuário: <br> <input id="cd_usuario" type="number" name="txtUsuario" required style="background-color: white; width: 80px;"><br>
+
+                    Código do Estoque: <br> <input id="cd_estoque" type="number" name="txtEstoque" required style="background-color: white; width: 80px;"><br>
+
+                    <input id="BtnConfirma" type="submit" name="Confirma" value="Cadastrar Caixa" style="position: absolute;
+                           left: 187px; top: 475px;">
 
                 </form>
 

@@ -15,7 +15,7 @@
 
             <img src="../CSS/Imagens_1/Gerente.png" style="
             position: absolute;
-            top: 850px;
+            top: 750px;
             left: 550px;
             ">
 
@@ -36,6 +36,8 @@
 
                             <li><a href="..\home.jsp">Home</a></li>    
 
+                            <li> <a href="..\Cliente\cliente.jsp">Área do Cliente</a></li>
+
                             <li><a href="..\Estoquista\estoquista.jsp">Área do Estoquista</a></li>
 
                             <li><a href="..\Recepcao\recepcao.jsp">Área do Recepcionista</a></li>
@@ -46,7 +48,7 @@
         </div>
 
 
-        <div class="FormGerente">
+        <div class="FormGerente" style="top: 400px;" >
             <h1>Página Principal do gerente</h1>
             <div class="GerenteUsuarios">
                 <h2>Gerenciador de Caixas</h2>  
@@ -72,7 +74,7 @@
         </div>  
 
 
-        <footer class="fotterHome" style="top: 1170px;" >
+        <footer class="fotterHome" style="top: 1070px;" >
             <h2>Fale Conosco</h2>
             <a href="https://www.facebook.com/profile.php?id=100068708837828" target="_blank"><img id="face" src="../CSS/Imagens_1/face_logo.png"></a>
             <a href="https://www.instagram.com/dsaas_estocagem/" target="_blank"> <img id="insta" src="../CSS/Imagens_1/insta_logo.png"></a>

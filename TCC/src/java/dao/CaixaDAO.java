@@ -88,18 +88,25 @@ public class CaixaDAO {
         return resultado;
     }
 
-    public void CadastrarCaixa(Caixa caixa) {
+    public int CadastrarCaixa(Caixa caixa) {
         Connection conexao = null;
+        int returnedId = 0;
         try {
-
             conexao = ConectaBancoUsuario.getConexao();
-            PreparedStatement pstmt = conexao.prepareStatement(INSERT);
+            PreparedStatement pstmt = conexao.prepareStatement(INSERT, PreparedStatement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, caixa.getTipo());
             pstmt.setString(2, caixa.getDescricao());
             pstmt.setInt(3, caixa.getQuantidade());
             pstmt.setInt(4, caixa.getCd_usuario());
             pstmt.setDouble(5, caixa.getTotal());
-            pstmt.execute();
+            returnedId = pstmt.executeUpdate();
+
+            ResultSet keys = pstmt.getGeneratedKeys();
+            if (keys.next()) {
+                returnedId = keys.getInt("id");
+            } else {
+                returnedId = -1;
+            }
 
         } catch (Exception ex) {
             throw new RuntimeException(ex);
@@ -110,6 +117,9 @@ public class CaixaDAO {
                 throw new RuntimeException(ex);
             }
         }
+        
+        return returnedId;
+        
     }
 
     public ArrayList<Caixa> listarCaixas() {
@@ -161,10 +171,10 @@ public class CaixaDAO {
             }
         }
     }
-    
-    public void updateCaixa(Caixa caixa){
+
+    public void updateCaixa(Caixa caixa) {
         Connection conexao = null;
-        try{
+        try {
             conexao = ConectaBancoUsuario.getConexao();
             PreparedStatement pstmt = conexao.prepareStatement(UPDATE);
             pstmt.setString(1, caixa.getTipo());
@@ -173,13 +183,13 @@ public class CaixaDAO {
             pstmt.setDouble(4, caixa.getTotal());
             pstmt.setInt(5, caixa.getId_caixa());
             pstmt.execute();
-            
-        }catch(Exception ex){
+
+        } catch (Exception ex) {
             throw new RuntimeException(ex);
-        }finally{
-            try{
+        } finally {
+            try {
                 conexao.close();
-            }catch(SQLException ex){
+            } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }
         }

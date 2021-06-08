@@ -41,6 +41,8 @@
 
                             <li><a href="home.jsp">Home</a></li>    
 
+                            <li> <a href="Cliente\cliente.jsp">Área do Cliente</a></li>
+
                             <li><a href="Estoquista\estoquista.jsp">Área do Estoquista</a></li>
 
                             <li><a href="Recepcao\recepcao.jsp">Área do Recepcionista</a></li>

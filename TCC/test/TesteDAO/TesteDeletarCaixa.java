@@ -9,17 +9,13 @@ public class TesteDeletarCaixa {
     public static void main(String[] args) {
 
         CaixaDAO dao = new CaixaDAO();
-
-        Caixa caixa = new CaixaBuilder()
-                .comId_caixa(3)
-                .comTipo("Revistas")
-                .comDescricao("Quadrinhos antigos 2")
-                .comQuantidade(32)
-                .constroi();
-
-        dao.updateCaixa(caixa);
-
-        System.out.println("Caixa alterada com sucesso!!!");
+        Caixa caixa = new Caixa();
+        
+        caixa.setId_caixa(18);
+        
+        dao.deletarCaixa(caixa);
+        
+        System.out.println("Caixa deletada com sucesso!");
 
     }
 
