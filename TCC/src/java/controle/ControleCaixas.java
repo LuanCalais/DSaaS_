@@ -157,18 +157,47 @@ public class ControleCaixas extends HttpServlet {
                                             RequestDispatcher rd = request.getRequestDispatcher("Cliente/listaId.jsp");
                                             rd.forward(request, response);
 
-                                        }else{
-                                            if("Excluir_Sol".equals(opc)){
+                                        } else {
+                                            if ("Excluir_Sol".equals(opc)) {
                                                 CaixaDAO dao = new CaixaDAO();
                                                 Solicitacoes sol = new Solicitacoes();
-                                                
+
                                                 int id = Integer.parseInt(request.getParameter("txtId"));
-                                                
+
                                                 sol.setId_solicitacoes(id);
                                                 dao.deletarSolicitacoes(sol);
-                                                
+
                                                 request.setAttribute("Mensagem", "Deleção efetuada com sucesso!");
                                                 request.getRequestDispatcher("operaSucesso.jsp").forward(request, response);
+
+                                            } else {
+                                                if ("Listar Minhas Caixas".equals(opc)) {
+
+                                                    CaixaDAO dao = new CaixaDAO();
+                                                    Caixa caixa = new CaixaBuilder()
+                                                            .comEmail_usu(request.getParameter("txtEmail1"))
+                                                            .constroi();
+
+                                                    ArrayList<Caixa> listaCaixa = dao.listarCaixasUsuario(caixa);
+
+                                                    request.setAttribute("ListaCaixas", listaCaixa);
+
+                                                    RequestDispatcher rd = request.getRequestDispatcher("Recepcao/listaCaixas.jsp");
+                                                    rd.forward(request, response);
+
+                                                } else {
+                                                    if ("Listar Meus Solicitados".equals(opc)) {
+                                                        CaixaDAO dao = new CaixaDAO();
+                                                        Solicitacoes solicita = new Solicitacoes();
+                                                        solicita.setEmail(request.getParameter("txtEmail1"));
+
+                                                        ArrayList<Solicitacoes> listaSolicita = dao.listarSolicitacoesUsuario(solicita);
+                                                        request.setAttribute("ListaSolicitados", listaSolicita);
+
+                                                        RequestDispatcher rd = request.getRequestDispatcher("Cliente/listaSolicitados.jsp");
+                                                        rd.forward(request, response);
+                                                    }
+                                                }
                                             }
                                         }
                                     }

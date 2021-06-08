@@ -50,12 +50,6 @@ public class ControleUsuarios extends HttpServlet {
                     usuario.setEndereco(end);
                     usuario.setSenha(request.getParameter("txtSenha"));
 
-                    /*
-                Usuario verifica = Autenticador.AutenticaEmail(usuario);
-                if(verifica == null){
-                request.setAttribute("Verifica", verifica);
-                request.getRequestDispatcher("FPessoal.jsp").forward(request, response);
-                }*/
                     int idUser = dao.CadastrarUsuario(usuario);
 
                     usuario.setNome(request.getParameter("txtNome"));

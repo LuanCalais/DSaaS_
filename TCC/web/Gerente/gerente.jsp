@@ -53,16 +53,27 @@
             <div class="GerenteUsuarios">
                 <h2>Gerenciador de Caixas</h2>  
 
-                <form id="F1" method="POST" action="ControleCaixas">
-                    <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" nome="txtId"><br> 
-                    <input id="listar" type="submit" name="Confirma" value="Solicitações"> 
+                <form id="F1" method="POST" action=".../ControleCaixas">
+
+                    <fieldset>
+                        <legend>Solicitações</legend>
+                        <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" nome="txtId"><br> 
+                        <input id="listar" type="submit" name="Confirma" value="Listar Solicitados"> 
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Caixas Armazenadas</legend>
+                        <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" nome="txtId"><br>
+                        <input id="lista" type="submit" name="Confirma" value="Listar Caixas">
+                    </fieldset>
                 </form>
 
 
-
-                <h2>Gerenciador de Usuários</h2>  
                 <form id="F1" method="POST" action=".../ControleUsuarios"> 
-                    Ver todos os usuários: <input id="listar" type="submit" name="Confirma" value="Listar"> <br>
+                    <fieldset style="width: 300px;">
+                        <legend>Gerenciador de Usuários</legend>
+                        Ver todos os usuários: <input id="listar" type="submit" name="Confirma" value="Listar" style="position:absolute; left: 240px; top: 390px;"> <br>
+                    </fieldset>
                 </form>
             </div>
         </div> 

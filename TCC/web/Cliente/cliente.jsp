@@ -40,7 +40,7 @@
 
                             <li><a href="..\Estoquista\estoquista.jsp">Área do Estoquista</a></li>
 
-                            <li><a href="Recepcao\recepcao.jsp">Área do Recepcionista</a></li>
+                            <li><a href="..\Recepcao\recepcao.jsp">Área do Recepcionista</a></li>
                         </ul>
                     </div>
                 </div>
@@ -54,10 +54,15 @@
                 <h2>Gerenciador de Solicitações</h2>  
 
                 <form id="F1" method="POST" action=".../ControleCaixas">
-                    <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" name="txtId"><br> 
-                    <input id="listar" type="submit" name="Confirma" value="Listar Solicitados" style="position:absolute; top: 158px; left: 260px;" > 
-                    <input id="BtnConfirma" type="submit" name="Confirma" value="Listar Caixas" style="position: absolute;
-                           left: 340px; top: 348px;">
+                    <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" name="txtId" required><br> 
+                </form>
+
+                <form id="F1" method="POST" action=".../ControleCaixas">
+                    <fieldset style="height: 100px;" >
+                        <input id="listar" type="submit" name="Confirma" value="Listar Meus Solicitados" style="position:absolute; left: 65.5px; top: 260px;" >
+                        <input id="BtnConfirma" type="submit" name="Confirma" value="Listar Minhas Caixas" style="position: absolute;
+                               left: 257px; top: 200px;">Confirme seu E-mail: <br> <input id="email" type="email" name="txtEmail1" required maxlength="30" style="background-color: white; width: 130px;"><br>
+                    </fieldset>
                 </form>
 
                 <h2>Nova Solicitação</h2>  
@@ -77,7 +82,7 @@
                     Confirme seu E-mail: <br> <input id="email" type="email" name="txtEmail" required maxlength="30" style="background-color: white; width: 130px;"><br>
 
                     <input id="BtnConfirma" type="submit" name="Confirma" value="Solicitar" style="position: absolute;
-                           left: 357px; top: 397px;">
+                           left: 237px; top: 517px;">
 
                 </form>
 

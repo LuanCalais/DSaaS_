@@ -50,7 +50,7 @@
         </div>
 
         <div class="tabelasUser" style="left:263px;" >
-            <h1>Lista De Caixas</h1>
+            <h1>Lista De Solicitações</h1>
             <table border="1">
                 <thead>
                     <tr>

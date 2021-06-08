@@ -15,7 +15,7 @@
 
             <img src="../CSS/Imagens_1/Gerente.png" style="
             position: absolute;
-            top: 750px;
+            top: 850px;
             left: -70px;
             ">
 
@@ -37,7 +37,7 @@
                             <li><a href="..\home.jsp">Home</a></li>    
 
                             <li><a href="..\Cliente\cliente.jsp">Área do Cliente</a></li>
-                            
+
                             <li><a href="..\Gerente\gerente.jsp"> Área do Gerente</a></li>
 
                             <li><a href="..\Estoquista\estoquista.jsp">Área do Estoquista</a></li>
@@ -56,11 +56,20 @@
                 <h2>Gerenciador de Solicitações</h2>  
 
                 <form id="F1" method="POST" action=".../ControleCaixas">
-                    <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" name="txtId"><br> 
-                    <input id="listar" type="submit" name="Confirma" value="Listar"> 
-                    <input id="BtnConfirma" type="submit" name="Confirma" value="Listar Caixas" style="position: absolute;
-                           left: 437px; top: 475px;">
+
+                    <fieldset>
+                        <legend>Solicitações</legend>
+                        <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" nome="txtId"><br> 
+                        <input id="listar" type="submit" name="Confirma" value="Listar Solicitados"> 
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Caixas Armazenadas</legend>
+                        <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" nome="txtId"><br>
+                        <input id="lista" type="submit" name="Confirma" value="Listar Caixas">
+                    </fieldset>
                 </form>
+
 
                 <h2>Cadastrar nova caixa</h2>  
                 <form id="F1" method="POST" action=".../ControleCaixas"> 
@@ -81,7 +90,7 @@
                     Código do Estoque: <br> <input id="cd_estoque" type="number" name="txtEstoque" required style="background-color: white; width: 80px;"><br>
 
                     <input id="BtnConfirma" type="submit" name="Confirma" value="Cadastrar Caixa" style="position: absolute;
-                           left: 237px; top: 475px;">
+                           left: 237px; top: 620px;">
 
                 </form>
 
@@ -96,7 +105,7 @@
         </div>  
 
 
-        <footer class="fotterHome" style="top: 1070px;" >
+        <footer class="fotterHome" style="top: 1170px;" >
             <h2>Fale Conosco</h2>
             <a href="https://www.facebook.com/profile.php?id=100068708837828" target="_blank"><img id="face" src="../CSS/Imagens_1/face_logo.png"></a>
             <a href="https://www.instagram.com/dsaas_estocagem/" target="_blank"> <img id="insta" src="../CSS/Imagens_1/insta_logo.png"></a>
