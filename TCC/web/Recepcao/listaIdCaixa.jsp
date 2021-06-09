@@ -19,7 +19,7 @@
             <div class="div2">
 
             <%
-                ArrayList<Caixa> listaCaixas = (ArrayList<Caixa>) request.getAttribute("ListaCaixas");
+                Caixa caixa = (Caixa) request.getAttribute("CaixasId");
             %>
 
             <p id="p1_home"> Unidade São Paulo-SP (11) 4546-6464 <br>
@@ -67,9 +67,6 @@
 
                 <tbody>
 
-                    <%                for (Caixa caixa : listaCaixas) {
-                    %>
-
                     <tr>
                         <td><%=caixa.getId_caixa()%></td> 
                         <td><%=caixa.getTipo()%></td>
@@ -84,11 +81,6 @@
                                 <img id="editar" src="CSS/Imagens_1/editar.png" style="width: 30px;">
                             </a></td>
                     </tr>
-
-
-                    <%
-                        }
-                    %>
 
                 </tbody>
             </table>

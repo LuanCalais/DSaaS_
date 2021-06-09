@@ -211,7 +211,7 @@ public class ControleCaixas extends HttpServlet {
                                                                 CaixaDAO daoC = new CaixaDAO();
                                                                 EstoqueDAO daoE = new EstoqueDAO();
                                                                 Solicitacoes solicita = new Solicitacoes();
-                                                                
+
                                                                 int idSol = Integer.parseInt(request.getParameter("txtId"));
                                                                 int idCaixa = Integer.parseInt(request.getParameter("txtIdCaixa"));
                                                                 int idEstoque = Integer.parseInt(request.getParameter("txtId_Estoque"));
@@ -220,7 +220,7 @@ public class ControleCaixas extends HttpServlet {
                                                                 solicita.setCd_estoque(idEstoque);
                                                                 solicita.setStatus("Ocupado");
                                                                 daoE.confirmaEstoque(solicita);
-                                                                
+
                                                                 solicita.setStatus("Confirmado");
                                                                 solicita.setId_solicitacoes(idSol);
                                                                 daoC.confirmaSolicitacao(solicita);
@@ -228,6 +228,32 @@ public class ControleCaixas extends HttpServlet {
                                                                 request.setAttribute("Mensagem", "Deleção efetuada com sucesso!");
                                                                 request.getRequestDispatcher("operaSucesso.jsp").forward(request, response);
 
+                                                            } else {
+                                                                if ("Buscar ID Caixa".equals(opc)) {
+
+                                                                    CaixaDAO dao = new CaixaDAO();
+                                                                    int id = Integer.parseInt(request.getParameter("txtId"));
+                                                                    Caixa caixa = dao.listarCaixaId(id);
+
+                                                                    request.setAttribute("CaixasId", caixa);
+
+                                                                    RequestDispatcher rd = request.getRequestDispatcher("Recepcao/listaIdCaixa.jsp");
+                                                                    rd.forward(request, response);
+
+                                                                } else {
+                                                                    if ("Buscar ID Solicitados".equals(opc)) {
+
+                                                                        CaixaDAO dao = new CaixaDAO();
+                                                                        int id = Integer.parseInt(request.getParameter("txtId"));
+                                                                        Solicitacoes solicita = dao.listarIdSol(id);
+
+                                                                        request.setAttribute("BuscaId", solicita);
+
+                                                                        RequestDispatcher rd = request.getRequestDispatcher("Gerente/listaSolicitadosID.jsp");
+                                                                        rd.forward(request, response);
+
+                                                                    }
+                                                                }
                                                             }
                                                         }
                                                     }

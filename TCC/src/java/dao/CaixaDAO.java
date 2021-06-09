@@ -22,6 +22,7 @@ public class CaixaDAO {
     public static final String INSERT = "INSERT INTO caixa(tipo, descricao, quantidade, cd_usuario, data_confirm, total) VALUES(?, ?, ?, ?, CURRENT_DATE, ?)";
     public static final String LISTAR = "SELECT * FROM caixa";
     public static final String LISTAR_ID = "SELECT * FROM caixa WHERE cd_usuario = (SELECT id FROM usuario WHERE email = ?)";
+    public static final String LISTAR_ID_CAIXA = "SELECT * FROM caixa WHERE id = ?";
     public static final String DELETE = "DELETE FROM caixa WHERE id = ?";
     public static final String UPDATE = "UPDATE caixa SET tipo = ?, descricao = ?, quantidade = ?, total = ? WHERE id = ?";
     public static final String CONFIRMA = "UPDATE solicitacoes SET status = ? WHERE id = ?";
@@ -282,6 +283,38 @@ public class CaixaDAO {
             }
         }
         return resultado;
+    }
+
+    public Caixa listarCaixaId(int id) {
+        Connection conexao = null;
+        Caixa ca = new Caixa();
+        try {
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(LISTAR_ID_CAIXA);
+            pstmt.setInt(1, id);
+            pstmt.execute();
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while (rs.next()) {
+                ca.setId_caixa(rs.getInt("id"));
+                ca.setTipo(rs.getString("tipo"));
+                ca.setDescricao(rs.getString("descricao"));
+                ca.setQuantidade(rs.getInt("quantidade"));
+                ca.setUsuario(rs.getInt("cd_usuario"));
+                ca.setTotal(rs.getDouble("total"));
+            }
+
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        } finally {
+            try {
+                conexao.close();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+        return ca;
     }
 
     public ArrayList<Solicitacoes> listarSolicitacoesUsuario(Solicitacoes solicita) {

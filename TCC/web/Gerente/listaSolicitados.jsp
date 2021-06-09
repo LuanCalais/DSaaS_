@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div class="tabelasUser" style="left:163px;" >
+        <div class="tabelasUser" style="left:273px;" >
             <h1>Lista De Solicitações</h1>
             <table border="1">
                 <thead>
@@ -97,7 +97,7 @@
                         }
                     %>
 
-                <a id="voltar" href="http://localhost:8080/TCC/Cliente/.../Cliente/.../Cliente/.../Cliente/cliente.jsp">Voltar</a>
+           
                 </tbody>
             </table>
         </div>         
