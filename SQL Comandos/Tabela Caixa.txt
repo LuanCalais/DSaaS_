@@ -45,6 +45,6 @@ CREATE TABLE solicitacoes(
 
 
 CREATE VIEW view_solicitacoes AS 
-SELECT solicita.id, usu.id AS cd_usuario, usu.email, caixa.tipo, caixa.descricao, caixa.quantidade, solicita.status
+SELECT solicita.id, usu.id AS cd_usuario, caixa.id AS cd_caixa, usu.email, caixa.tipo, caixa.descricao, caixa.quantidade, solicita.status
 FROM usuario AS usu, caixa AS caixa, solicitacoes AS solicita
 WHERE usu.id = solicita.cd_usuario AND caixa.id = solicita.cd_caixa; 

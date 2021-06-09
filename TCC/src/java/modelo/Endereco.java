@@ -9,6 +9,15 @@ public class Endereco {
     private int numero;
     private String complemento;
 
+    public Endereco(int id, String cep, String logadouro, String bairro, int numero, String complemento) {
+        this.id = id;
+        this.cep = cep;
+        this.logadouro = logadouro;
+        this.bairro = bairro;
+        this.numero = numero;
+        this.complemento = complemento;
+    }
+    
     public Endereco() {
     }
     

@@ -57,13 +57,13 @@
 
                     <fieldset>
                         <legend>Solicitações</legend>
-                        <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" nome="txtId"><br> 
+                        <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" name="txtId"><br> 
                         <input id="listar" type="submit" name="Confirma" value="Listar Solicitados"> 
                     </fieldset>
 
                     <fieldset>
                         <legend>Caixas Armazenadas</legend>
-                        <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" nome="txtId"><br>
+                        <input id="listarId" type="submit" name="Confirma" value="Buscar ID"><input id="listaId" type="number" name="txtId"><br>
                         <input id="lista" type="submit" name="Confirma" value="Listar Caixas">
                     </fieldset>
                 </form>

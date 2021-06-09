@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.Estoque;
+import modelo.Solicitacoes;
 import util.ConectaBancoUsuario;
 
 public class EstoqueDAO {
@@ -17,7 +18,9 @@ public class EstoqueDAO {
     public static final String SELECT_ID = "SELECT * FROM estoque WHERE id = ?";
     public static final String ALTERAR = "UPDATE estoque SET rua = ?, status = ? WHERE id = ?";
     public static final String UPDATE = "UPDATE estoque SET cd_caixa = ?, status = 'Ocupado', data_entrada = CURRENT_DATE WHERE id = ?";
-
+    public static final String CONFIRMA = "UPDATE estoque SET status = ?, cd_caixa = ? WHERE id = ?";
+    
+    
     public void cadastraEstoque(Estoque estoque) {
         Connection conexao = null;
         try {
@@ -70,6 +73,28 @@ public class EstoqueDAO {
             
             pstmt.setInt(1, estoque.getId_caixa());
             pstmt.setInt(2, estoque.getId());
+            pstmt.execute();
+            
+        }catch(Exception ex){
+            throw new RuntimeException(ex);
+        }finally{
+            try{
+                conexao.close();
+            }catch(SQLException ex){
+                throw new RuntimeException(ex);
+            }
+        }
+    }
+    
+    public void confirmaEstoque(Solicitacoes solicita){
+        Connection conexao = null;
+        try{
+            conexao = ConectaBancoUsuario.getConexao();
+            PreparedStatement pstmt = conexao.prepareStatement(CONFIRMA);
+            
+            pstmt.setString(1, solicita.getStatus());
+            pstmt.setInt(2, solicita.getCd_caixa());
+            pstmt.setInt(3, solicita.getCd_estoque());
             pstmt.execute();
             
         }catch(Exception ex){

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Empresa;
 import modelo.Endereco;
+import modelo.EnderecoBuilder;
 import modelo.Funcionario;
 import modelo.Pessoal;
 import modelo.Usuario;
@@ -29,17 +30,31 @@ public class ControleUsuarios extends HttpServlet {
             if ("Cadastrar".equals(opc)) {
 
                 String tipo = request.getParameter("rdTipo");
-                
+
                 UsuarioDAO dao = new UsuarioDAO();
-                Endereco end = new Endereco();
+                int numero = Integer.parseInt(request.getParameter("txtNumero"));
+                Endereco end = new EnderecoBuilder()
+                        .comCep(request.getParameter("txtCep"))
+                        .comLogadouro(request.getParameter("txtLogadouro"))
+                        .comBairro(request.getParameter("txtBairro"))
+                        .comNumero(numero)
+                        .comComplemento(request.getParameter("txtComplemento"))
+                        .constroi();
+
+                int idEnd = dao.CadastrarEndereco(end);
+                end.setId(idEnd);
+                
+                /*
+                UsuarioDAO dao = new UsuarioDAO();
+                Endereco end2 = new Endereco();
                 end.setCep(request.getParameter("txtCep"));
                 end.setLogadouro(request.getParameter("txtLogadouro"));
                 end.setBairro(request.getParameter("txtBairro"));
-                int numero = Integer.parseInt(request.getParameter("txtNumero"));
-                end.setNumero(numero);
+                int numero1 = Integer.parseInt(request.getParameter("txtNumero"));
+                end.setNumero(numero1);
                 end.setComplemento(request.getParameter("txtComplemento"));
                 int idEnd = dao.CadastrarEndereco(end);
-                end.setId(idEnd);
+                end.setId(idEnd);*/
 
                 if ("Pessoal".equals(tipo)) {
 

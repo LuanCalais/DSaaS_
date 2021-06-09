@@ -24,7 +24,7 @@ public class CaixaDAO {
     public static final String LISTAR_ID = "SELECT * FROM caixa WHERE cd_usuario = (SELECT id FROM usuario WHERE email = ?)";
     public static final String DELETE = "DELETE FROM caixa WHERE id = ?";
     public static final String UPDATE = "UPDATE caixa SET tipo = ?, descricao = ?, quantidade = ?, total = ? WHERE id = ?";
-    public static final String CONFIRMA = "UPDATE solicitacoes SET status = ?";
+    public static final String CONFIRMA = "UPDATE solicitacoes SET status = ? WHERE id = ?";
 
     public void CadastrarSolicitacao(Solicitacoes solicita) {
         Connection conexao = null;
@@ -110,6 +110,7 @@ public class CaixaDAO {
                 Solicitacoes sol = new Solicitacoes();
                 sol.setId_solicitacoes(rs.getInt("id"));
                 sol.setCd_usuario(rs.getInt("cd_usuario"));
+                sol.setCd_caixa(rs.getInt("cd_caixa"));
                 sol.setEmail(rs.getString("email"));
                 sol.setTipo(rs.getString("tipo"));
                 sol.setDscricao(rs.getString("descricao"));
@@ -142,6 +143,7 @@ public class CaixaDAO {
             while (rs.next()) {
                 sol.setId_solicitacoes(rs.getInt("id"));
                 sol.setCd_usuario(rs.getInt("cd_usuario"));
+                sol.setCd_caixa(rs.getInt("cd_caixa"));
                 sol.setEmail(rs.getString("email"));
                 sol.setTipo(rs.getString("tipo"));
                 sol.setDscricao(rs.getString("descricao"));
@@ -162,13 +164,14 @@ public class CaixaDAO {
         return sol;
     }
 
-    public void Confirma(Solicitacoes solicitacoes) {
+    public void confirmaSolicitacao(Solicitacoes solicitacoes) {
         Connection conexao = null;
         try {
 
             conexao = ConectaBancoUsuario.getConexao();
             PreparedStatement pstmt = conexao.prepareStatement(CONFIRMA);
             pstmt.setString(1, solicitacoes.getStatus());
+            pstmt.setInt(2, solicitacoes.getId_solicitacoes());
             pstmt.execute();
 
         } catch (Exception ex) {
@@ -280,8 +283,8 @@ public class CaixaDAO {
         }
         return resultado;
     }
-    
-        public ArrayList<Solicitacoes> listarSolicitacoesUsuario(Solicitacoes solicita) {
+
+    public ArrayList<Solicitacoes> listarSolicitacoesUsuario(Solicitacoes solicita) {
         ArrayList<Solicitacoes> resultado = new ArrayList();
         Connection conexao = null;
         try {

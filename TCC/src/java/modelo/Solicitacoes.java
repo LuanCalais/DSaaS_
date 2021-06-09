@@ -6,6 +6,7 @@ public class Solicitacoes{
     private int cd_usuario;
     private String email;
     private int cd_caixa;
+    private int cd_estoque;
     private String dscricao;
     private String tipo;
     private int quantidade;
@@ -43,6 +44,14 @@ public class Solicitacoes{
         this.cd_caixa = cd_caixa;
     }
 
+    public int getCd_estoque() {
+        return cd_estoque;
+    }
+
+    public void setCd_estoque(int cd_estoque) {
+        this.cd_estoque = cd_estoque;
+    }
+    
     public String getDscricao() {
         return dscricao;
     }

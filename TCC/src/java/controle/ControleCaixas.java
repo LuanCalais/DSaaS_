@@ -83,8 +83,6 @@ public class ControleCaixas extends HttpServlet {
                     } else {
                         if ("Alterar_1".equals(opc)) {
 
-                            CaixaDAO dao = new CaixaDAO();
-
                             int id = Integer.parseInt(request.getParameter("txtId"));
                             request.setAttribute("id", id);
 
@@ -142,7 +140,7 @@ public class ControleCaixas extends HttpServlet {
                                         ArrayList<Solicitacoes> listaSolicita = dao.listarSolicitacoes();
                                         request.setAttribute("ListaSolicitados", listaSolicita);
 
-                                        RequestDispatcher rd = request.getRequestDispatcher("Cliente/listaSolicitados.jsp");
+                                        RequestDispatcher rd = request.getRequestDispatcher("Gerente/listaSolicitados.jsp");
                                         rd.forward(request, response);
 
                                     } else {
@@ -196,7 +194,44 @@ public class ControleCaixas extends HttpServlet {
 
                                                         RequestDispatcher rd = request.getRequestDispatcher("Cliente/listaSolicitados.jsp");
                                                         rd.forward(request, response);
+                                                    } else {
+                                                        if ("Confirmar_1".equals(opc)) {
+
+                                                            int id = Integer.parseInt(request.getParameter("txtId"));
+                                                            request.setAttribute("id", id);
+                                                            int idCaixa = Integer.parseInt(request.getParameter("txtIdCaixa"));
+                                                            request.setAttribute("idCaixa", idCaixa);
+
+                                                            RequestDispatcher rd = request.getRequestDispatcher("Gerente/ConfCaixa.jsp");
+                                                            rd.forward(request, response);
+
+                                                        } else {
+                                                            if ("Confirmar".equals(opc)) {
+
+                                                                CaixaDAO daoC = new CaixaDAO();
+                                                                EstoqueDAO daoE = new EstoqueDAO();
+                                                                Solicitacoes solicita = new Solicitacoes();
+                                                                
+                                                                int idSol = Integer.parseInt(request.getParameter("txtId"));
+                                                                int idCaixa = Integer.parseInt(request.getParameter("txtIdCaixa"));
+                                                                int idEstoque = Integer.parseInt(request.getParameter("txtId_Estoque"));
+
+                                                                solicita.setCd_caixa(idCaixa);
+                                                                solicita.setCd_estoque(idEstoque);
+                                                                solicita.setStatus("Ocupado");
+                                                                daoE.confirmaEstoque(solicita);
+                                                                
+                                                                solicita.setStatus("Confirmado");
+                                                                solicita.setId_solicitacoes(idSol);
+                                                                daoC.confirmaSolicitacao(solicita);
+
+                                                                request.setAttribute("Mensagem", "Deleção efetuada com sucesso!");
+                                                                request.getRequestDispatcher("operaSucesso.jsp").forward(request, response);
+
+                                                            }
+                                                        }
                                                     }
+
                                                 }
                                             }
                                         }
