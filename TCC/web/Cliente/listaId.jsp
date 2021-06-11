@@ -13,6 +13,13 @@
 
         <body>
 
+            <%
+                if (session.getAttribute("login") != "true") {
+                    session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+                    response.sendRedirect("../LogarFuncionario.jsp");
+                }
+            %>
+
             <div class="div2">
 
             <%
@@ -46,7 +53,7 @@
         </div>
 
 
-            <div class="tabelasUser" style="left:293px;">
+        <div class="tabelasUser" style="left:293px;">
             <h1>Lista Solicitação ID</h1>
             <table border="1">
                 <thead>
@@ -77,7 +84,7 @@
                             </a></td>
                     </tr>
 
-                    <a id="voltar" href="http://localhost:8080/TCC/Cliente/.../Cliente/.../Cliente/.../Cliente/cliente.jsp">Voltar</a>
+                <a id="voltar" href="http://localhost:8080/TCC/Cliente/.../Cliente/.../Cliente/.../Cliente/cliente.jsp">Voltar</a>
                 </tbody>
             </table>
 

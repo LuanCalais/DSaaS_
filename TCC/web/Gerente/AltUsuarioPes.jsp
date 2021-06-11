@@ -9,6 +9,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
     </head>
     <body>
+
+        <%
+            if (session.getAttribute("login") != "true") {
+                session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+                response.sendRedirect("../LogarFuncionario.jsp");
+            }
+        %>
+
         <h1>Alteração Pessoa Física</h1>
 
         <img src="CSS/Imagens_1/cad_Pessoal.png" style="
@@ -45,8 +53,8 @@
             </div>
         </div>
 
-        <% int id = (Integer)request.getAttribute("id"); %>
-        
+        <% int id = (Integer) request.getAttribute("id");%>
+
         <div class="cadastroPes">
             <form id="FCadastro" method="POST" action="ControleUsuarios?Tipo=Pessoal&txtId=<%=id%>">
 
@@ -54,8 +62,8 @@
                 Id do Usuário: <input type="text" value="<%=id%>" disabled style="width: 55px; text-align: center;"><br>
                 Nome:<br><input type="text" name="txtNome" maxlength="50" required><br>
                 Sexo: <select name="txtSexo" style="position: absolute;
-                                                    top: 116px;
-                                                    left: 97px">
+                              top: 116px;
+                              left: 97px">
                     <option value="M">M</option>
                     <option value="F">F</option>
                 </select><br>
@@ -65,7 +73,7 @@
                 Telefone:<br> <input type="text" name="txtTelefone" maxlength="11"  placeholder="xxxxx-xxxx"><br>
                 Celular:<br> <input type="text" name="txtCelular" maxlength="11" placeholder="xxxxx-xxxx"><br>
                 Senha:<br> <input type="password" name="txtSenha" required>
-                
+
                 <input id="BtnConfirma" type="submit" name="Confirma" value="Alterar">
 
             </form>

@@ -11,7 +11,16 @@
                 text-decoration: none;}
             </style>
         </head>
+
         <body>
+
+            <%
+                if (session.getAttribute("login") != "true") {
+                    session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+                    response.sendRedirect("../Logar.jsp");
+                }
+            %>
+
 
             <img src="../CSS/Imagens_1/Cliente.png" style="
             position: absolute;
@@ -33,6 +42,7 @@
 
                     <div class="menu" >
                         <ul>
+                            <li><a href="http://localhost:8080/TCC/util/logout.jsp">Logout</a></li>
 
                             <li><a href="..\home.jsp">Home</a></li>    
 
@@ -41,6 +51,7 @@
                             <li><a href="..\Estoquista\estoquista.jsp">Área do Estoquista</a></li>
 
                             <li><a href="..\Recepcao\recepcao.jsp">Área do Recepcionista</a></li>
+
                         </ul>
                     </div>
                 </div>

@@ -13,6 +13,14 @@
         </head>
         <body>
 
+            <%
+                if (session.getAttribute("login") != "true") {
+                    session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+                    response.sendRedirect("../LogarFuncionario.jsp");
+                }
+            %>
+
+
             <img src="../CSS/Imagens_1/Gerente.png" style="
             position: absolute;
             top: 850px;
@@ -63,7 +71,7 @@
                         <input id="listar" type="submit" name="Confirma" value="Listar Solicitados"> 
                     </fieldset>
                 </form>    
-                    
+
                 <form id="F1" method="POST" action=".../ControleCaixas">    
                     <fieldset>
                         <legend>Caixas Armazenadas</legend>

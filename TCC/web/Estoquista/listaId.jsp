@@ -13,6 +13,13 @@
 
         <body>
 
+            <%
+    if (session.getAttribute("login") != "true") {
+        session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+        response.sendRedirect("../LogarFuncionario.jsp");
+    }
+            %>
+
             <div class="div2">
 
             <%
@@ -83,13 +90,13 @@
 
 
 
-            <a id="voltar" href="http://localhost:8080/TCC/Estoquista/estoquista.jsp">Voltar</a>
+        <a id="voltar" href="http://localhost:8080/TCC/Estoquista/estoquista.jsp">Voltar</a>
 
-            <div class="header">
-                <span class="title">DSaaS</span>
-                <p class="subtitle">Estocagem</p>
-                <button><a id="SobreNos" href="http://localhost:8080/TCC/SobreNos.html">Sobre Nós</a></button>
-            </div>  
+        <div class="header">
+            <span class="title">DSaaS</span>
+            <p class="subtitle">Estocagem</p>
+            <button><a id="SobreNos" href="http://localhost:8080/TCC/SobreNos.html">Sobre Nós</a></button>
+        </div>  
 
         <footer class="fotterHome" style="top: 870px;" >
             <h2>Fale Conosco</h2>

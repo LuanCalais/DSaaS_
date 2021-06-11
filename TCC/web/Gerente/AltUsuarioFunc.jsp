@@ -8,6 +8,14 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
     </head>
     <body>
+
+        <%
+            if (session.getAttribute("login") != "true") {
+                session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+                response.sendRedirect("../LogarFuncionario.jsp");
+            }
+        %>
+
         <h1>Alteração Funcionário</h1>
 
         <img src="CSS/Imagens_1/cad_Funcionario.png" style="
@@ -43,16 +51,16 @@
                 </div>
             </div>
         </div>
-        
-        <% 
-            int id = (Integer)request.getAttribute("id"); 
-            int idFunc = (Integer)request.getAttribute("idFunc");
+
+        <%
+            int id = (Integer) request.getAttribute("id");
+            int idFunc = (Integer) request.getAttribute("idFunc");
         %>
 
         <div class="CadastroFunc" >
             <form id="FCadastro" method="POST" action="ControleUsuarios?Tipo=Funcionario&txtId=<%=id%>&txtIdFunc=<%=idFunc%>">
                 <legend>Alteração Funcionário DSaaS</legend>
-                
+
                 Id do Usuário: <input type="text" value="<%=id%>" disabled style="width: 55px; text-align: center;"><br>
                 Id DSaaS: <br> <input type="text" value="<%=idFunc%>" disabled style="width: 55px; text-align: center;"><br>
                 Nome: <br><input type="text" name="txtNome" maxlength="50" required><br>

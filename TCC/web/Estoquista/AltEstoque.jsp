@@ -8,6 +8,14 @@
         <title>Tela de Alteracao Estoque</title>
     </head>
     <body>
+
+        <%
+            if (session.getAttribute("login") != "true") {
+                session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+                response.sendRedirect("../LogarFuncionario.jsp");
+            }
+        %>
+
         <h1>Alteração Dados Estoque</h1>
 
         <img src="CSS/Imagens_1/Logo.png" style="

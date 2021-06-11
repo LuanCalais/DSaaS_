@@ -13,6 +13,13 @@
 
         <body>
 
+            <%
+                if (session.getAttribute("login") != "true") {
+                    session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+                    response.sendRedirect("../LogarFuncionario.jsp");
+                }
+            %>
+
             <div class="div2">
 
             <%

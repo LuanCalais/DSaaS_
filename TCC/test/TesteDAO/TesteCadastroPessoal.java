@@ -14,7 +14,7 @@ public class TesteCadastroPessoal {
         usuario.setNome("Fulaninho");
         usuario.setCpf("44444444444");
         usuario.setSexo('M');
-        usuario.setId(10);
+        usuario.setId(295);
         
         UsuarioDAO dao = new UsuarioDAO();
         dao.CadastrarPessoal(usuario);

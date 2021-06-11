@@ -14,9 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.Caixa;
 import modelo.CaixaBuilder;
-import modelo.Endereco;
 import modelo.Estoque;
-import modelo.Pessoal;
 import modelo.Solicitacoes;
 
 @WebServlet(name = "ControleCaixas", urlPatterns = {"/ControleCaixas"})

@@ -8,6 +8,14 @@
         <title>Tela de Confirmação da Caixa</title>
     </head>
     <body>
+
+        <%
+            if (session.getAttribute("login") != "true") {
+                session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+                response.sendRedirect("../LogarFuncionario.jsp");
+            }
+        %>
+
         <h1>Confirmação da Caixa</h1>
 
         <img src="CSS/Imagens_1/Logo.png" style="
@@ -35,11 +43,11 @@
                             <li><a href="home.jsp">Home</a></li>    
 
                             <li><a href="Cliente\cliente.jsp">Área do Cliente</a></li>
-                            
+
                             <li><a href="Gerente\gerente.jsp"> Área do Gerente</a></li>
 
                             <li><a href="Estoquista\estoquista.jsp">Área do Estoquista</a></li>
-                            
+
                             <li><a href="Recepcao\recepcao.jsp">Área do Recepcionista</a></li>
                         </ul>
                     </div>
@@ -56,7 +64,7 @@
             <form id="FCadastro" method="POST" action="ControleCaixas?Confirma=Confirmar&txtId=<%=id%>&txtIdCaixa=<%=idCaixa%>">
 
                 <legend>Confirmar Caixa</legend>
-                
+
                 Id da Solicitação: <input type="text" value="<%=id%>" disabled style="width: 55px; text-align: center;"><br>
                 Id da Caixa: <input type="text" value="<%=idCaixa%>" disabled style="width: 55px; text-align: center;"><br>
 

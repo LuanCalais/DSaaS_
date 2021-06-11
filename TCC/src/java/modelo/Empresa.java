@@ -4,7 +4,7 @@ public class Empresa extends Usuario{
 
     private String nomeSocial;
     private String nomeFantasia;
-    private String cnpj;
+    private String cnpj; 
 
     public String getNomeSocial() {
         return nomeSocial;

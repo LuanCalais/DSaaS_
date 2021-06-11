@@ -407,3 +407,8 @@ legend{
     background-color: white;
 }
 
+#linkLog{
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}

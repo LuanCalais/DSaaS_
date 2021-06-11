@@ -13,6 +13,13 @@
 
         <body>
 
+            <%
+                if (session.getAttribute("login") != "true") {
+                    session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+                    response.sendRedirect("../LogarFuncionario.jsp");
+                }
+            %>
+
             <img src="../CSS/Imagens_1/Gerente.png" style="
             position: absolute;
             top: 750px;
@@ -48,7 +55,7 @@
         </div>
 
 
-            <div class="FormGerente" style="top: 400px;" >
+        <div class="FormGerente" style="top: 400px;" >
             <h1>Página Principal do Estoquista</h1>
             <div class="GerenteUsuarios">
                 <h2>Gerenciador de Estoque</h2>  
@@ -76,7 +83,7 @@
                     </select><br>
 
                     <input id="BtnConfirma" type="submit" name="Confirma" value="Cadastrar" style="position: absolute;
-                                                                                                   left: 300px; top: 327px;">
+                           left: 300px; top: 327px;">
 
                 </form>
 

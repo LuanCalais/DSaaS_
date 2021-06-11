@@ -14,7 +14,12 @@
 
         <body>
 
-
+            <%
+                if (session.getAttribute("login") != "true") {
+                    session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+                    response.sendRedirect("../LogarFuncionario.jsp");
+                }
+            %>
 
             <div class="div2">
 
@@ -37,7 +42,7 @@
                     <div class="menu" >
                         <ul>
                             <li><a href="home.jsp">Home</a></li>  
-                            
+
                             <li><a href="Cliente\cliente.jsp">Área do Cliente</a></li>
 
                             <li><a href="Gerente\gerente.jsp">Área do Gerente</a></li>
@@ -97,7 +102,7 @@
                         }
                     %>
 
-           
+
                 </tbody>
             </table>
         </div>         

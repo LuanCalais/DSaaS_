@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import modelo.Caixa;
-import modelo.Documentos;
 import modelo.Solicitacoes;
 import util.ConectaBancoUsuario;
 

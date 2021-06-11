@@ -5,23 +5,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="CSS\style_1.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-        <title>Tela de Alteracao Pessoa Juridica</title>
+        <title>Login</title>
     </head>
     <body>
+        <h1>Login</h1>
 
-        <%
-            if (session.getAttribute("login") != "true") {
-                session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
-                response.sendRedirect("../LogarFuncionario.jsp");
-            }
-        %>
-
-        <h1>Alteração Pessoa Jurídica</h1>
-
-        <img src="CSS/Imagens_1/cad_Empresa.png" style="
+        <img src="CSS/Imagens_1/cad_Funcionario.png" style="
              position: absolute;
-             top: 600px;
-             left: 700px;
+             top: 647.5px;
+             left: 840px;
+             width: 500px;
              " >
 
         <div class="div2">
@@ -41,7 +34,11 @@
 
                             <li><a href="home.jsp">Home</a></li>    
 
+                            <li><a href="FPessoal.jsp">Cadastrar</a></li>
+
                             <li> <a href="Cliente\cliente.jsp">Área do Cliente</a></li>
+
+                            <li><a href="Gerente\gerente.jsp" >Área do Gerente</a></li>
 
                             <li><a href="Estoquista\estoquista.jsp">Área do Estoquista</a></li>
 
@@ -52,25 +49,16 @@
             </div>
         </div>
 
-        <% int id = (Integer) request.getAttribute("id");%>
-
-        <div class="cadastroEmp">
-            <form id="FCadastro" method="POST" action="ControleUsuarios?Tipo=Empresa&txtId=<%=id%>">
-
-                <legend>Alteração Pessoa Jurídica</legend>
-                Id da Empresa: <input type="text" value="<%=id%>" disabled style="width: 55px; text-align: center;" ><br>
-                Nome Social: <br> <input type="text" name="txtNomeSoc" maxlength="50" required><br>
-                Nome Fantasia: <br> <input type="text" name="txtNomeFant" maxlength="50" required><br>
-
-                E-mail: <br><input type="email" name="txtEmail" maxlength="50" required><br>
-                Telefone: <br><input type="text" name="txtTelefone" maxlength="11"  placeholder="xxxxx-xxxx"><br>
-                Celular: <br><input type="text" name="txtCelular" maxlength="11" placeholder="xxxxx-xxxx"><br>
-                Senha: <br><input type="password" name="txtSenha" required>
-
-                <input id="BtnConfirma" type="submit" name="Confirma" value="Alterar">
-            </form>
-        </div>
-
+        <form class="login" action="ConntroleLogin" method="POST">
+            <a id="linkLog" href="http://localhost:8080/TCC/Logar.jsp">Clique aqui para logar como Cliente</a>
+            <legend>-Login Funcionário-</legend>
+            <h2>Email:</h2>
+            <input type="text" name="txtEmail" required maxlength="30" autofocus>
+            <h2>Senha:</h2>
+            <input type="password" name="txtSenha" required maxlength="20">
+            <button id="btnLogin" type="submit" class="btn">Entrar</button>
+            <p style="color: red; font-weight: bold;" >${Mensagem}</p>
+        </form>
 
         <div class="header">
             <span class="title">DSaaS</span>
@@ -79,7 +67,7 @@
         </div>  
 
 
-        <footer class="fotterHome" style="top: 1300px;" >
+        <footer class="fotterHome" style="top: 990px;" >
             <h2>Fale Conosco</h2>
             <a href="https://www.facebook.com/profile.php?id=100068708837828" target="_blank"><img id="face" src="CSS/Imagens_1/face_logo.png"></a>
             <a href="https://www.instagram.com/dsaas_estocagem/" target="_blank"> <img id="insta" src="CSS/Imagens_1/insta_logo.png"></a>

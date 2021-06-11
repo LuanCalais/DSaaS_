@@ -8,6 +8,14 @@
         <title>Tela de Alteracao Caixa</title>
     </head>
     <body>
+
+        <%
+            if (session.getAttribute("login") != "true") {
+                session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+                response.sendRedirect("../LogarFuncionario.jsp");
+            }
+        %>
+
         <h1>Alteração Dados de Caixa</h1>
 
         <img src="CSS/Imagens_1/Logo.png" style="
@@ -35,7 +43,7 @@
                             <li><a href="home.jsp">Home</a></li>    
 
                             <li><a href="Cliente\cliente.jsp">Área do Cliente</a></li>
-                            
+
                             <li><a href="Gerente\gerente.jsp"> Área do Gerente</a></li>
 
                             <li><a href="Estoquista\estoquista.jsp">Área do Estoquista</a></li>
@@ -51,9 +59,9 @@
             <form id="FCadastro" method="POST" action="ControleCaixas?Confirma=Alterar&txtId=<%=id%>">
 
                 <legend>Alteração Caixa</legend>
-                
+
                 Id da Caixa: <input type="text" value="<%=id%>" disabled style="width: 55px; text-align: center;"><br>
-                
+
                 Tipo: <select name="txtTipo" required>
                     <option value="Documento">Documento</option>
                     <option value="Recibo">Recibo</option>
