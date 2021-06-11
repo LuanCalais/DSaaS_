@@ -1,5 +1,6 @@
 package controle;
 
+import dao.LoginDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import modelo.Login;
 
 @WebServlet(name = "ControleLogin", urlPatterns = {"/ControleLogin"})
 public class ControleLogin extends HttpServlet {
@@ -17,9 +19,40 @@ public class ControleLogin extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            Login logar = new Login();
+            logar.setEmail(request.getParameter("txtEmail"));
+            logar.setSenha(request.getParameter("txtSenha"));
+
             HttpSession sessao = request.getSession();
-            
-        }
+            String uri = request.getContextPath();
+
+            LoginDAO dao = new LoginDAO();
+            Login log = dao.confirmaLogin(logar);
+            String perfil = log.getPerfil();
+
+                switch (perfil) {
+                    case "Gerente":
+                        uri += "/Gerente/gerente.jsp";
+                        break;
+
+                    case "Recepcao":
+                        uri += "/Recepcao/recepcao.jsp";
+                        break;
+
+                    case "Estoque":
+                        uri += "/Estoquista/estoquista.jsp";
+                        break;
+
+                    default:
+                        uri += "/LogarFuncionario.jsp";
+                }
+
+                sessao.setAttribute("login", "true");
+                sessao.setAttribute("Perfil", perfil);
+
+                response.sendRedirect(uri);
+            }
+                
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

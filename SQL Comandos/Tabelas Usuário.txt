@@ -102,14 +102,13 @@ CREATE TABLE recepcao(
     ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-CREATE TABLE estoque(
-    id INTEGER DEFAULT NEXTVAL('seq_estoque'),
+CREATE TABLE estoquista(
+    id SERIAL PRIMARY KEY,
     nomeFunc VARCHAR(50) NOT NULL,
     cd_funcionario INTEGER NOT NULL,
-    CONSTRAINT pk_estoque PRIMARY KEY(id),
-    CONSTRAINT fk_funcionario FOREIGN KEY(cd_funcionario) REFERENCES funcionario(idFunc)
+    CONSTRAINT fk_funcionario FOREIGN KEY(cd_funcionario) REFERENCES funcionario(idfunc)
     ON DELETE CASCADE ON UPDATE CASCADE
-);
+);    
 
 
 CREATE VIEW view_usuarios AS 
@@ -128,6 +127,10 @@ CREATE VIEW view_func AS
 SELECT usu.id, func.idFunc, pes.nome, func.funcao
 FROM usuario AS usu, pessoal AS pes, funcionario AS func
 WHERE usu.id = pes.cd_usuario AND usu.id = func.cd_usuario;
+
+CREATE VIEW view_login AS
+SELECT usu.email, usu.senha, func.funcao
+FROM usuario AS usu, funcionario AS func;
 
 
 

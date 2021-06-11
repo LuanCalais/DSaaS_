@@ -3,9 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/luanc/OneDrive/Área%20de%20Trabalho/TCC/TCC/web/LogarFuncionario.jsp</file>
+            <file>file:/C:/Users/luanc/OneDrive/Área%20de%20Trabalho/TCC/TCC/web/Estoquista/estoquista.jsp</file>
+            <file>file:/C:/Users/luanc/OneDrive/Área%20de%20Trabalho/TCC/TCC/web/Recepcao/recepcao.jsp</file>
+            <file>file:/C:/Users/luanc/OneDrive/Área%20de%20Trabalho/TCC/TCC/web/Gerente/gerente.jsp</file>
             <file>file:/C:/Users/luanc/OneDrive/Área%20de%20Trabalho/TCC/TCC/src/java/controle/ControleLogin.java</file>
+            <file>file:/C:/Users/luanc/OneDrive/Área%20de%20Trabalho/TCC/TCC/src/java/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/luanc/OneDrive/Área%20de%20Trabalho/TCC/TCC/src/java/dao/LoginDAO.java</file>
             <file>file:/C:/Users/luanc/OneDrive/Área%20de%20Trabalho/TCC/TCC/web/Logar.jsp</file>
+            <file>file:/C:/Users/luanc/OneDrive/Área%20de%20Trabalho/TCC/TCC/src/java/controle/ControleUsuarios.java</file>
         </group>
     </open-files>
 </project-private>

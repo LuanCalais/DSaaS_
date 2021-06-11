@@ -14,7 +14,7 @@ public class LoginDAO {
 
     public Login confirmaLogin(Login login) {
         Connection conexao = null;
-        Login funcao = new Login();
+        Login confirma = new Login();
         try {
             conexao = ConectaBancoUsuario.getConexao();
             PreparedStatement pstmt = conexao.prepareStatement(CONFIRMA);
@@ -22,8 +22,10 @@ public class LoginDAO {
             pstmt.setString(2, login.getSenha());
             ResultSet rs = pstmt.executeQuery();
 
-            while (rs.next()){ 
-            funcao.setPerfil(rs.getString("funcao"));
+            while (rs.next()) {
+                confirma.setEmail(rs.getString("email"));
+                confirma.setSenha(rs.getString("senha"));
+                confirma.setPerfil(rs.getString("funcao"));
             }
 
         } catch (Exception ex) {
@@ -35,7 +37,7 @@ public class LoginDAO {
                 throw new RuntimeException(ex);
             }
         }
-        return funcao;
+        return confirma;
     }
 
 }

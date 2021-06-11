@@ -22,7 +22,7 @@ public class UsuarioDAO {
     public static final String INSERT_FUNC = "INSERT INTO funcionario(idFunc, funcao, turno, cd_usuario, cd_pessoal) VALUES(?, ?, ?, ?, ?)";
     public static final String INSERT_GERENTE = "INSERT INTO gerente(nomeFunc, cd_funcionario) VALUES(?, ?)";
     public static final String INSERT_RECEPCAO = "INSERT INTO recepcao(nomeFunc, cd_funcionario) VALUES(?, ?)";
-    public static final String INSERT_ESTOQUE = "INSERT INTO estoque(nomeFunc, cd_funcionario) VALUES(?, ?)";
+    public static final String INSERT_ESTOQUE = "INSERT INTO estoquista(nomeFunc, cd_funcionario) VALUES(?, ?)";
     public static final String SELECT_ALL_PES = "SELECT * FROM view_usuarios";
     public static final String SELECT_ALL_EMP = "SELECT * FROM view_empres";
     public static final String SELECT_ALL_FUNC = "SELECT * FROM view_func";

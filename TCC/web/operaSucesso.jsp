@@ -15,6 +15,13 @@
     </head>
     <body>
 
+        <%
+            if (session.getAttribute("login") != "true") {
+                session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+                response.sendRedirect("../LogarFuncionario.jsp");
+            }
+        %>
+
         <img id="sucessoIMG" src="CSS/Imagens_1/OK.png" style="position: absolute;
              height: 460px;
              top: 565px;
@@ -34,6 +41,7 @@
 
                     <div class="menu" >
                         <ul>
+                            <li><a href="http://localhost:8080/TCC/util/logout.jsp">Logout</a></li>
 
                             <li><a href="home.jsp">Home</a></li>    
 

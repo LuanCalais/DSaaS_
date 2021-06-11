@@ -14,8 +14,15 @@
         <style>a {color: black;
            text-decoration: none;}</style>
         </head>
-        
+
         <body>
+
+            <%
+                if (session.getAttribute("login") != "true") {
+                    session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
+                    response.sendRedirect("../LogarFuncionario.jsp");
+                }
+            %>
 
             <div class="div2">
 
@@ -38,6 +45,7 @@
 
                     <div class="menu" >
                         <ul>
+                            <li><a href="http://localhost:8080/TCC/util/logout.jsp">Logout</a></li>
 
                             <li><a href="home.jsp">Home</a></li>    
 
@@ -168,14 +176,14 @@
 
                 </tbody>
             </table>
-                    
+
             <a id="voltar" href="http://localhost:8080/TCC/Gerente/gerente.jsp">Voltar</a>
-                    
+
         </div>
-                    
+
         <img id="galera" src="CSS/Imagens_1/Config.jpg" style="position: absolute; top: 1090px; left: 800px; width: 540px;">
-                    
-                <div class="header">
+
+        <div class="header">
             <span class="title">DSaaS</span>
             <p class="subtitle">Estocagem</p>
             <button><a id="SobreNos" href="http://localhost:8080/TCC/SobreNos.html">Sobre Nós</a></button>
@@ -187,8 +195,8 @@
             <a href="https://www.facebook.com/profile.php?id=100068708837828" target="_blank"><img id="face" src="CSS/Imagens_1/face_logo.png"></a>
             <a href="https://www.instagram.com/dsaas_estocagem/" target="_blank"> <img id="insta" src="CSS/Imagens_1/insta_logo.png"></a>
         </footer>
-        
-        
+
+
         <a href="http://localhost:8080/TCC/Gerente/gerente.jsp">Voltar</a>         
 
     </body>

@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <form class="login" action="ConntroleLogin" method="POST">
+        <form class="login" action="ControleLogin" method="POST">
             <a id="linkLog" href="http://localhost:8080/TCC/Logar.jsp">Clique aqui para logar como Cliente</a>
             <legend>-Login Funcionário-</legend>
             <h2>Email:</h2>

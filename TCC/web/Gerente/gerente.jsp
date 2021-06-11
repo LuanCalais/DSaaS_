@@ -17,6 +17,17 @@
                 if (session.getAttribute("login") != "true") {
                     session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Se autentique para acessar");
                     response.sendRedirect("../LogarFuncionario.jsp");
+                } else {
+                    if (session.isNew() || session.getAttribute("Perfil") == null) {
+                        session.setAttribute("Mensagem", "Infelizmente você não tem acesso a isso :(<br>Sentimos muito");
+                        response.sendRedirect("../LogarFuncionario.jsp");
+                    } else {
+                        String perfil = (String) session.getAttribute("Perfil");
+                        if ("Recepcao".equals(perfil) || "Estoque".equals(perfil)) {
+                            session.setAttribute("Mensagem", "Essa área só pode ser acessada por um gerente");
+                            response.sendRedirect("../LogarFuncionario.jsp");
+                        }
+                    }
                 }
             %>
 
@@ -40,6 +51,7 @@
 
                     <div class="menu" >
                         <ul>
+                            <li><a href="http://localhost:8080/TCC/util/logout.jsp">Logout</a></li>
 
                             <li><a href="..\home.jsp">Home</a></li>    
 

@@ -39,6 +39,7 @@
 
                     <div class="menu" >
                         <ul>
+                            <li><a href="http://localhost:8080/TCC/util/logout.jsp">Logout</a></li>
 
                             <li><a href="home.jsp">Home</a></li>    
 

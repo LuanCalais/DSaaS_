@@ -42,6 +42,8 @@
                     <div class="menu" >
                         <ul>
                             <li><a href="home.jsp">Home</a></li>    
+                            
+                            <li><a href="http://localhost:8080/TCC/util/logout.jsp">Logout</a></li>
 
                             <li><a href="Gerente\gerente.jsp">Área do Gerente</a></li>
 
